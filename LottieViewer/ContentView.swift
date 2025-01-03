@@ -6,15 +6,12 @@
 //
 
 import SwiftUI
+import Lottie
 
 struct ContentView: View {
     @Binding var document: LottieViewerDocument
 
     var body: some View {
-        TextEditor(text: $document.text)
+        LottieView(animation: document.animation)
     }
-}
-
-#Preview {
-    ContentView(document: .constant(LottieViewerDocument()))
 }

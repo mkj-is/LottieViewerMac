@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct LottieViewerApp: App {
     var body: some Scene {
-        DocumentGroup(newDocument: LottieViewerDocument()) { file in
+        DocumentGroup(viewing: LottieViewerDocument.self) { file in
             ContentView(document: file.$document)
         }
     }

@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		154479342D28204000DB7205 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 154479332D28204000DB7205 /* Lottie */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		154479012D281E2100DB7205 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -65,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				154479342D28204000DB7205 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +130,7 @@
 			);
 			name = LottieViewer;
 			packageProductDependencies = (
+				154479332D28204000DB7205 /* Lottie */,
 			);
 			productName = LottieViewer;
 			productReference = 154478EC2D281E1F00DB7205 /* LottieViewer.app */;
@@ -208,6 +214,9 @@
 			);
 			mainGroup = 154478E32D281E1F00DB7205;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				154479322D28204000DB7205 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 154478ED2D281E1F00DB7205 /* Products */;
 			projectDirPath = "";
@@ -564,6 +573,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		154479322D28204000DB7205 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		154479332D28204000DB7205 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 154479322D28204000DB7205 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 154478E42D281E1F00DB7205 /* Project object */;
 }

@@ -7,33 +7,37 @@
 
 import SwiftUI
 import UniformTypeIdentifiers
+import Lottie
 
 extension UTType {
-    static var exampleText: UTType {
-        UTType(importedAs: "com.example.plain-text")
+    static var dotLottie: UTType {
+        UTType(importedAs: "io.dotlottie.lottie")
+    }
+
+    static var lottie: UTType {
+        UTType(importedAs: "com.airbnb.lottie")
     }
 }
 
 struct LottieViewerDocument: FileDocument {
-    var text: String
 
-    init(text: String = "Hello, world!") {
-        self.text = text
+    enum FileWrapperError: Error {
+        case writeNotSupported
     }
 
-    static var readableContentTypes: [UTType] { [.exampleText] }
+    let animation: LottieAnimation
+
+    static let readableContentTypes: [UTType] = [.lottie, .dotLottie]
+    static let writableContentTypes: [UTType] = []
 
     init(configuration: ReadConfiguration) throws {
-        guard let data = configuration.file.regularFileContents,
-              let string = String(data: data, encoding: .utf8)
-        else {
+        guard let data = configuration.file.regularFileContents else {
             throw CocoaError(.fileReadCorruptFile)
         }
-        text = string
+        animation = try LottieAnimation.from(data: data)
     }
-    
+
     func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
-        let data = text.data(using: .utf8)!
-        return .init(regularFileWithContents: data)
+        throw FileWrapperError.writeNotSupported
     }
 }
