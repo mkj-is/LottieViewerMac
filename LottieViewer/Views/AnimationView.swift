@@ -21,7 +21,7 @@ struct AnimationView: View {
     var body: some View {
         HSplitView {
             LottieView(animation: animation)
-                .playing(loopMode: .loop)
+                .playing(loopMode: state.configuration.loopMode)
                 .animationSpeed(state.configuration.speed)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
 
