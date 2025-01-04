@@ -21,14 +21,23 @@ extension UTType {
 
 struct LottieViewerDocument: FileDocument {
 
+    struct Animation: Identifiable {
+        let id: String
+        let animation: LottieAnimation
+
+        init(id: String?, animation: LottieAnimation) {
+            self.id = id ?? "Animation"
+            self.animation = animation
+        }
+    }
+
     enum FileWrapperError: Error {
         case writeNotSupported
         case noFilename
-        case noDotLottieAnimation
         case unknownContentType
     }
 
-    let animation: LottieAnimation
+    let animations: [Animation]
 
     static let readableContentTypes: [UTType] = [.lottie, .dotLottie]
     static let writableContentTypes: [UTType] = []
@@ -38,23 +47,23 @@ struct LottieViewerDocument: FileDocument {
             throw CocoaError(.fileReadCorruptFile)
         }
         if configuration.contentType == .lottie {
-            animation = try LottieAnimation.from(data: data)
+            let animation = try LottieAnimation.from(data: data)
+            animations = [Animation(id: configuration.file.filename, animation: animation)]
         } else if configuration.contentType == .dotLottie {
-            animation = try LottieViewerDocument.loadDotLottie(configuration: configuration, data: data)
+            animations = try LottieViewerDocument.loadDotLottie(configuration: configuration, data: data)
         } else {
             throw FileWrapperError.unknownContentType
         }
     }
 
-    private static func loadDotLottie(configuration: ReadConfiguration, data: Data) throws -> LottieAnimation {
+    private static func loadDotLottie(configuration: ReadConfiguration, data: Data) throws -> [Animation] {
         guard let filename = configuration.file.filename else {
             throw FileWrapperError.noFilename
         }
         let dotLottieFile = try DotLottieFile.SynchronouslyBlockingCurrentThread.loadedFrom(data: data, filename: filename).get()
-        guard let firstAnimation = dotLottieFile.animations.first else {
-            throw FileWrapperError.noDotLottieAnimation
+        return dotLottieFile.animations.map { animation in
+            Animation(id: animation.configuration.id, animation: animation.animation)
         }
-        return firstAnimation.animation
     }
 
     func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
