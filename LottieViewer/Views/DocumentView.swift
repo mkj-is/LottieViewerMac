@@ -27,7 +27,7 @@ struct DocumentView: View {
                         Text(animation.id)
                     }
                 } detail: {
-                    AnimationView(animation: firstAnimation)
+                    AnimationView(animation: selectedAnimation ?? firstAnimation)
                 }
             } else {
                 AnimationView(animation: firstAnimation)
