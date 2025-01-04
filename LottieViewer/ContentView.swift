@@ -20,27 +20,30 @@ struct ContentView: View {
     @State private var state = ContentViewState()
 
     var body: some View {
-        if let firstAnimation = document.animations.first {
+        if let firstAnimation = document.animations.first?.animation {
             if document.animations.count > 1 {
                 NavigationSplitView {
                     List(document.animations, selection: $state.selection) { animation in
                         Text(animation.id)
                     }
-                    .toolbar(removing: document.animations.count < 2 ? .sidebarToggle : nil)
                 } detail: {
-                    LottieView(animation: document.animations.first(where: { animation in
-                        animation.id == state.selection
-                    })?.animation ?? firstAnimation.animation)
+                    LottieView(animation: selectedAnimation ?? firstAnimation)
                         .playing(loopMode: .loop)
                 }
             } else {
-                LottieView(animation: firstAnimation.animation)
+                LottieView(animation: firstAnimation)
                     .playing(loopMode: .loop)
             }
         } else {
             Text("No animations included in this file.")
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
+    }
+
+    private var selectedAnimation: LottieAnimation? {
+        document.animations.first(where: { animation in
+            animation.id == state.selection
+        })?.animation
     }
 
     private func infoAction() {
