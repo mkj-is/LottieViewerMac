@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		154479342D28204000DB7205 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 154479332D28204000DB7205 /* Lottie */; };
+		1544797D2D297DC100DB7205 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 1544797C2D297DC100DB7205 /* Lottie */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				154479342D28204000DB7205 /* Lottie in Frameworks */,
+				1544797D2D297DC100DB7205 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,7 +130,7 @@
 			);
 			name = LottieViewer;
 			packageProductDependencies = (
-				154479332D28204000DB7205 /* Lottie */,
+				1544797C2D297DC100DB7205 /* Lottie */,
 			);
 			productName = LottieViewer;
 			productReference = 154478EC2D281E1F00DB7205 /* LottieViewer.app */;
@@ -215,7 +215,7 @@
 			mainGroup = 154478E32D281E1F00DB7205;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				154479322D28204000DB7205 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				1544797B2D297DC100DB7205 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 154478ED2D281E1F00DB7205 /* Products */;
@@ -575,20 +575,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		154479322D28204000DB7205 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+		1544797B2D297DC100DB7205 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 4.5.0;
+				minimumVersion = 4.5.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		154479332D28204000DB7205 /* Lottie */ = {
+		1544797C2D297DC100DB7205 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 154479322D28204000DB7205 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			package = 1544797B2D297DC100DB7205 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
