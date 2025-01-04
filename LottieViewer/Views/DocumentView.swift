@@ -27,12 +27,10 @@ struct DocumentView: View {
                         Text(animation.id)
                     }
                 } detail: {
-                    LottieView(animation: selectedAnimation ?? firstAnimation)
-                        .playing(loopMode: .loop)
+                    AnimationView(animation: firstAnimation)
                 }
             } else {
-                LottieView(animation: firstAnimation)
-                    .playing(loopMode: .loop)
+                AnimationView(animation: firstAnimation)
             }
         } else {
             Text("No animations included in this file.")
