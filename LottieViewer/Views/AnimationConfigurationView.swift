@@ -8,7 +8,12 @@
 import SwiftUI
 
 struct AnimationConfigurationViewState {
-    var speed = 1.0
+    /// Indicates step in slider, exponent of 2. Not actual speed.
+    var speedExponent = 0.0
+
+    var speed: Double {
+        pow(2.0, speedExponent)
+    }
 }
 
 struct AnimationConfigurationView: View {
@@ -16,9 +21,11 @@ struct AnimationConfigurationView: View {
 
     var body: some View {
         VStack {
-            Slider(value: $state.speed, in: 0.25...4, step: 0.25) {
+            Slider(value: $state.speedExponent, in: -2.0...3.0, step: 1.0) {
                 Text("Animation speed")
             }
+            minimumValueLabel: { Text("¼×") }
+            maximumValueLabel: { Text("8×") }
         }
         .padding()
         .frame(minWidth: 200, maxWidth: 350, maxHeight: .infinity)
@@ -26,5 +33,5 @@ struct AnimationConfigurationView: View {
 }
 
 #Preview {
-    AnimationConfigurationView(state: .constant(AnimationConfigurationViewState(speed: 1)))
+    AnimationConfigurationView(state: .constant(AnimationConfigurationViewState()))
 }
