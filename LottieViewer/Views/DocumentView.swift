@@ -9,7 +9,6 @@ import SwiftUI
 import Lottie
 
 struct DocumentViewState {
-    var info = false
     var animation: LottieAnimation?
     var selection: LottieFileDocument.Animation.ID?
 }
@@ -42,9 +41,5 @@ struct DocumentView: View {
         document.animations.first(where: { animation in
             animation.id == state.selection
         })?.animation
-    }
-
-    private func infoAction() {
-        state.info.toggle()
     }
 }
