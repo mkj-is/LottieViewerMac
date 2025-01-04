@@ -13,5 +13,6 @@ struct ContentView: View {
 
     var body: some View {
         LottieView(animation: document.animation)
+            .playing(loopMode: .loop)
     }
 }
