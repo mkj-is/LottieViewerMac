@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  DocumentView.swift
 //  LottieViewer
 //
 //  Created by Matěj Kašpar Jirásek on 03.01.2025.
@@ -8,16 +8,16 @@
 import SwiftUI
 import Lottie
 
-struct ContentViewState {
+struct DocumentViewState {
     var info = false
     var animation: LottieAnimation?
-    var selection: LottieViewerDocument.Animation.ID?
+    var selection: LottieFileDocument.Animation.ID?
 }
 
-struct ContentView: View {
-    @Binding var document: LottieViewerDocument
+struct DocumentView: View {
+    @Binding var document: LottieFileDocument
 
-    @State private var state = ContentViewState()
+    @State private var state = DocumentViewState()
 
     var body: some View {
         if let firstAnimation = document.animations.first?.animation {

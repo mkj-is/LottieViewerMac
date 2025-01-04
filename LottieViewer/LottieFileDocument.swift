@@ -1,5 +1,5 @@
 //
-//  LottieViewerDocument.swift
+//  LottieFileDocument.swift
 //  LottieViewer
 //
 //  Created by Matěj Kašpar Jirásek on 03.01.2025.
@@ -19,7 +19,7 @@ extension UTType {
     }
 }
 
-struct LottieViewerDocument: FileDocument {
+struct LottieFileDocument: FileDocument {
 
     struct Animation: Identifiable {
         let id: String
@@ -50,7 +50,7 @@ struct LottieViewerDocument: FileDocument {
             let animation = try LottieAnimation.from(data: data)
             animations = [Animation(id: configuration.file.filename, animation: animation)]
         } else if configuration.contentType == .dotLottie {
-            animations = try LottieViewerDocument.loadDotLottie(configuration: configuration, data: data)
+            animations = try LottieFileDocument.loadDotLottie(configuration: configuration, data: data)
         } else {
             throw FileWrapperError.unknownContentType
         }
