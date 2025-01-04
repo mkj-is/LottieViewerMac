@@ -19,8 +19,6 @@
 			<string>$(PRODUCT_BUNDLE_IDENTIFIER).lottie</string>
 		</dict>
 		<dict>
-			<key>NSUbiquitousDocumentUserActivityType</key>
-			<string>$(PRODUCT_BUNDLE_IDENTIFIER).dotlottie</string>
 			<key>CFBundleTypeName</key>
 			<string>DotLottie</string>
 			<key>CFBundleTypeRole</key>
@@ -32,12 +30,15 @@
 				<string>io.dotlottie.lottie</string>
 			</array>
 		</dict>
+		<dict/>
 	</array>
 	<key>UTImportedTypeDeclarations</key>
 	<array>
 		<dict>
 			<key>UTTypeConformsTo</key>
-			<array/>
+			<array>
+				<string>public.zip-archive</string>
+			</array>
 			<key>UTTypeDescription</key>
 			<string>DotLottie</string>
 			<key>UTTypeIcons</key>
@@ -50,9 +51,15 @@
 				<array>
 					<string>lottie</string>
 				</array>
+				<key>public.mime-type</key>
+				<array>
+					<string>application/zip</string>
+				</array>
 			</dict>
 		</dict>
 		<dict>
+			<key>UTTypeConformsTo</key>
+			<array/>
 			<key>UTTypeDescription</key>
 			<string>Lottie</string>
 			<key>UTTypeIcons</key>
