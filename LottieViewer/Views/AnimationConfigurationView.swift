@@ -35,8 +35,6 @@ struct AnimationConfigurationView: View {
             minimumValueLabel: { Text("¼×") }
             maximumValueLabel: { Text("8×") }
         }
-        .padding()
-        .frame(minWidth: 200, maxWidth: 350, maxHeight: .infinity)
     }
 }
 

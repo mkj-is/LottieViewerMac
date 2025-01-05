@@ -14,49 +14,57 @@ struct InfoView: View {
         Grid(alignment: .leading) {
             GridRow {
                 Text("Info")
-                    .font(.headline)
+                    .font(.title)
                     .gridCellColumns(2)
             }
             switch info {
             case .success(let info):
                 GridRow {
                     Text("Resolution:")
+                        .font(.headline)
                     Text(info.width, format: .number) + Text("×") + Text(info.height, format: .number) + Text(" points")
                 }
                 GridRow {
                     Text("Frame rate:")
+                        .font(.headline)
                     Text(info.framerate, format: .number) + Text(" fps")
                 }
                 GridRow {
                     Text("Duration:")
+                        .font(.headline)
                     Text(info.duration, format: .measurement(width: .abbreviated))
                 }
                 GridRow {
                     Text("Start frame:")
+                        .font(.headline)
                     Text(info.startFrame, format: .number)
                 }
                 GridRow {
                     Text("End frame:")
+                        .font(.headline)
                     Text(info.endFrame, format: .number)
                 }
                 if let byteCount = info.byteCount {
                     GridRow {
                         Text("Size:")
+                            .font(.headline)
                         Text(Measurement(value: Double(byteCount), unit: UnitInformationStorage.bytes), format: .byteCount(style: .file))
                     }
                 }
                 GridRow {
                     Text("Version:")
-                    Text(verbatim: info.version)
+                        .font(.headline)
+                    Text(info.version)
                 }
             case .failure(let error):
                 GridRow {
                     Text("Loading info failed.")
-                        .font(.callout)
+                        .font(.headline)
+                        .gridCellColumns(2)
                 }
                 GridRow {
                     Text(error.localizedDescription)
-                        .font(.footnote)
+                        .gridCellColumns(2)
                 }
             }
         }
@@ -64,7 +72,7 @@ struct InfoView: View {
     }
 }
 
-#Preview {
+#Preview("Info") {
     InfoView(
         info: .success(
             .init(
@@ -78,5 +86,11 @@ struct InfoView: View {
                 byteCount: 30 * 1024
             )
         )
+    )
+}
+
+#Preview("Info error") {
+    InfoView(
+        info: .failure(NSError(domain: "Preview", code: 0))
     )
 }

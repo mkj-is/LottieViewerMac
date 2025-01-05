@@ -27,13 +27,15 @@ struct AnimationView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
 
             if state.showInfo {
-                VStack {
+                VStack(alignment: .leading) {
                     AnimationConfigurationView(state: $state.configuration)
                     Spacer()
                     if let info = state.info {
                         InfoView(info: info)
                     }
                 }
+                .padding()
+                .frame(minWidth: 250, maxWidth: 300, maxHeight: .infinity)
                 .task(priority: .utility, utilityTask)
             }
         }
