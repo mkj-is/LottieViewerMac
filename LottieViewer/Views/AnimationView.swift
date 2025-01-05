@@ -11,6 +11,7 @@ import SwiftUI
 struct AnimationViewState {
     var showInfo: Bool = false
     var configuration = AnimationConfigurationViewState()
+    var info: Result<LottieAnimationInfo, Error>?
 }
 
 struct AnimationView: View {
@@ -26,7 +27,14 @@ struct AnimationView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
 
             if state.showInfo {
-                AnimationConfigurationView(state: $state.configuration)
+                VStack {
+                    AnimationConfigurationView(state: $state.configuration)
+                    Spacer()
+                    if let info = state.info {
+                        InfoView(info: info)
+                    }
+                }
+                .task(priority: .utility, utilityTask)
             }
         }
         .toolbar {
@@ -38,5 +46,16 @@ struct AnimationView: View {
 
     private func infoAction() {
         state.showInfo.toggle()
+    }
+
+    @Sendable
+    private func utilityTask() async {
+        guard state.info == nil else {
+            return
+        }
+        state.info = Result {
+            let data = try JSONEncoder().encode(animation)
+            return try JSONDecoder().decode(LottieAnimationInfo.self, from: data)
+        }
     }
 }
