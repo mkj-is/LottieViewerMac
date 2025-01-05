@@ -25,6 +25,7 @@ struct AnimationView: View {
                 .playing(loopMode: state.configuration.loopMode)
                 .animationSpeed(state.configuration.speed)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(state.configuration.backgroundColor)
 
             if state.showInfo {
                 VStack(alignment: .leading) {
