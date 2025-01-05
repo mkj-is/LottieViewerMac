@@ -20,20 +20,30 @@ struct InfoView: View {
             switch info {
             case .success(let info):
                 GridRow {
-                    Text("Size:")
+                    Text("Resolution:")
                     Text(info.width, format: .number) + Text("×") + Text(info.height, format: .number) + Text(" points")
                 }
                 GridRow {
-                    Text("Frame rate")
+                    Text("Frame rate:")
                     Text(info.framerate, format: .number) + Text(" fps")
                 }
                 GridRow {
-                    Text("Start frame")
+                    Text("Start frame:")
                     Text(info.startFrame, format: .number)
                 }
                 GridRow {
-                    Text("End frame")
+                    Text("End frame:")
                     Text(info.endFrame, format: .number)
+                }
+                if let byteCount = info.byteCount {
+                    GridRow {
+                        Text("Size:")
+                        Text(Measurement(value: Double(byteCount), unit: UnitInformationStorage.bytes), format: .byteCount(style: .file))
+                    }
+                }
+                GridRow {
+                    Text("Version:")
+                    Text(verbatim: info.version)
                 }
             case .failure(let error):
                 GridRow {
@@ -60,7 +70,8 @@ struct InfoView: View {
                 version: "v1",
                 type: .type2d,
                 width: 30,
-                height: 30
+                height: 30,
+                byteCount: 30 * 1024
             )
         )
     )

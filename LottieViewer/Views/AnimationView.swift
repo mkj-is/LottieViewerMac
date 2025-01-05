@@ -55,7 +55,9 @@ struct AnimationView: View {
         }
         state.info = Result {
             let data = try JSONEncoder().encode(animation)
-            return try JSONDecoder().decode(LottieAnimationInfo.self, from: data)
+            var info = try JSONDecoder().decode(LottieAnimationInfo.self, from: data)
+            info.byteCount = data.count
+            return info
         }
     }
 }

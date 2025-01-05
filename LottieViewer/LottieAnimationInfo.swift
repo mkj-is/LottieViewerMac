@@ -15,6 +15,7 @@ struct LottieAnimationInfo: Decodable {
     let type: Lottie.CoordinateSpace?
     let width: Double
     let height: Double
+    var byteCount: Int?
 
     enum CodingKeys: String, CodingKey {
       case version = "v"
