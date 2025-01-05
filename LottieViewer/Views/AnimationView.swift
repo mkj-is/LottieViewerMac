@@ -51,6 +51,10 @@ struct AnimationView: View {
         state.showInfo.toggle()
     }
 
+    /// Processes Lottie animation and gets various info and metadata from it.
+    ///
+    /// `LottieAnimation` has most metadata private. We are encoding it and decoding to our own model,
+    ///  so we do not have to access internal variables.
     @Sendable
     private func utilityTask() async {
         guard state.info == nil else {
