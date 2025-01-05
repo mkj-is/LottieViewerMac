@@ -28,6 +28,10 @@ struct InfoView: View {
                     Text(info.framerate, format: .number) + Text(" fps")
                 }
                 GridRow {
+                    Text("Duration:")
+                    Text(info.duration, format: .measurement(width: .abbreviated))
+                }
+                GridRow {
                     Text("Start frame:")
                     Text(info.startFrame, format: .number)
                 }
