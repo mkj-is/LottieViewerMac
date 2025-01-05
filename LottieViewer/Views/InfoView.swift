@@ -27,7 +27,7 @@ struct InfoView: View {
                 GridRow {
                     Text("Frame rate:")
                         .font(.headline)
-                    Text(info.frameRate, format: .number) + Text(" fps")
+                    Text(Measurement(value: info.frameRate, unit: UnitFrequency.framesPerSecond), format: .measurement(width: .abbreviated))
                 }
                 GridRow {
                     Text("Duration:")
