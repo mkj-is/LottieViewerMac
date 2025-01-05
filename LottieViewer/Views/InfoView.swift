@@ -32,7 +32,7 @@ struct InfoView: View {
                 GridRow {
                     Text("Duration:")
                         .font(.headline)
-                    Text(info.duration, format: .measurement(width: .abbreviated))
+                    Text(info.duration, format: .measurement(width: .abbreviated, numberFormatStyle: .number.precision(.fractionLength(2))))
                 }
                 GridRow {
                     Text("Start frame:")
