@@ -18,7 +18,7 @@ struct LottieAnimationInfo: Decodable {
     let height: Double
     var byteCount: Int?
 
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
       case version = "v"
       case type = "ddd"
       case startFrame = "ip"
