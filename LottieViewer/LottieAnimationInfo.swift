@@ -11,7 +11,7 @@ import Foundation
 struct LottieAnimationInfo: Decodable {
     let startFrame: AnimationFrameTime
     let endFrame: AnimationFrameTime
-    let framerate: Double
+    let frameRate: Double
     let version: String
     let type: Lottie.CoordinateSpace?
     let width: Double
@@ -23,13 +23,13 @@ struct LottieAnimationInfo: Decodable {
       case type = "ddd"
       case startFrame = "ip"
       case endFrame = "op"
-      case framerate = "fr"
+      case frameRate = "fr"
       case width = "w"
       case height = "h"
     }
 
     var duration: Measurement<UnitDuration> {
-        let duration = (endFrame - startFrame) / framerate
+        let duration = (endFrame - startFrame) / frameRate
         return Measurement(value: duration, unit: .seconds)
     }
 }

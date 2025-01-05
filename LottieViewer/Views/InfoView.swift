@@ -27,7 +27,7 @@ struct InfoView: View {
                 GridRow {
                     Text("Frame rate:")
                         .font(.headline)
-                    Text(info.framerate, format: .number) + Text(" fps")
+                    Text(info.frameRate, format: .number) + Text(" fps")
                 }
                 GridRow {
                     Text("Duration:")
@@ -78,7 +78,7 @@ struct InfoView: View {
             .init(
                 startFrame: 0,
                 endFrame: 30,
-                framerate: 30,
+                frameRate: 30,
                 version: "v1",
                 type: .type2d,
                 width: 30,
