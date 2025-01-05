@@ -23,7 +23,7 @@ struct AnimationConfigurationView: View {
     @Binding var state: AnimationConfigurationViewState
 
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Picker(selection: $state.loopMode, label: Text("Loop mode")) {
                 Text("Loop").tag(LottieLoopMode.loop)
                 Text("Auto reverse").tag(LottieLoopMode.autoReverse)
