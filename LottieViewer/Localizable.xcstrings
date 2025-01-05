@@ -1,0 +1,185 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    " points" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " bodů"
+          }
+        }
+      }
+    },
+    "×" : {
+
+    },
+    "8×" : {
+
+    },
+    "¼×" : {
+
+    },
+    "Auto reverse" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opakovat tam a zpět"
+          }
+        }
+      }
+    },
+    "Background color" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Barva pozadí"
+          }
+        }
+      }
+    },
+    "Duration:" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Délka:"
+          }
+        }
+      }
+    },
+    "End frame:" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Poslední snímek:"
+          }
+        }
+      }
+    },
+    "Frame rate:" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Frekvence obnovení:"
+          }
+        }
+      }
+    },
+    "Info" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Informance"
+          }
+        }
+      }
+    },
+    "Loading info failed." : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Načtení informací selhalo."
+          }
+        }
+      }
+    },
+    "Loop" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opakovat"
+          }
+        }
+      }
+    },
+    "Loop mode" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mód opakování"
+          }
+        }
+      }
+    },
+    "No animations included in this file." : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "V tomto souboru nejdou žádné animace."
+          }
+        }
+      }
+    },
+    "Play once" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přehrát jednou"
+          }
+        }
+      }
+    },
+    "Playback speed" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rychlost přehrávání"
+          }
+        }
+      }
+    },
+    "Resolution:" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rozlišení:"
+          }
+        }
+      }
+    },
+    "Size:" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Velikost:"
+          }
+        }
+      }
+    },
+    "Start frame:" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "První snímek:"
+          }
+        }
+      }
+    },
+    "Version:" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verze:"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
