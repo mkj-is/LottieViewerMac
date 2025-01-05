@@ -43,6 +43,7 @@ struct AnimationView: View {
         .toolbar {
             ToolbarItem {
                 Button("Info", systemImage: state.showInfo ? "info.circle.fill" : "info.circle", action: infoAction)
+                    .keyboardShortcut("I", modifiers: .command)
             }
         }
     }
