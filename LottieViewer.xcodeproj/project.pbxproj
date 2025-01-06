@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1544797D2D297DC100DB7205 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 1544797C2D297DC100DB7205 /* Lottie */; };
+		15447A1A2D2C698700DB7205 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15447A192D2C698700DB7205 /* Quartz.framework */; };
+		15447A272D2C698700DB7205 /* Preview.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 15447A172D2C698700DB7205 /* Preview.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,12 +27,35 @@
 			remoteGlobalIDString = 154478EB2D281E1F00DB7205;
 			remoteInfo = LottieViewer;
 		};
+		15447A252D2C698700DB7205 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 154478E42D281E1F00DB7205 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 15447A162D2C698700DB7205;
+			remoteInfo = Preview;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		15447A282D2C698700DB7205 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				15447A272D2C698700DB7205 /* Preview.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		154478EC2D281E1F00DB7205 /* LottieViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LottieViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		154479002D281E2100DB7205 /* LottieViewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LottieViewerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1544790A2D281E2100DB7205 /* LottieViewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LottieViewerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		15447A172D2C698700DB7205 /* Preview.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Preview.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		15447A192D2C698700DB7205 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -40,6 +65,13 @@
 				Info.plist,
 			);
 			target = 154478EB2D281E1F00DB7205 /* LottieViewer */;
+		};
+		15447A2C2D2C698700DB7205 /* Exceptions for "Preview" folder in "Preview" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 15447A162D2C698700DB7205 /* Preview */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -60,6 +92,14 @@
 		1544790D2D281E2100DB7205 /* LottieViewerUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = LottieViewerUITests;
+			sourceTree = "<group>";
+		};
+		15447A1B2D2C698700DB7205 /* Preview */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				15447A2C2D2C698700DB7205 /* Exceptions for "Preview" folder in "Preview" target */,
+			);
+			path = Preview;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -87,6 +127,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		15447A142D2C698700DB7205 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15447A1A2D2C698700DB7205 /* Quartz.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -96,6 +144,8 @@
 				154478EE2D281E1F00DB7205 /* LottieViewer */,
 				154479032D281E2100DB7205 /* LottieViewerTests */,
 				1544790D2D281E2100DB7205 /* LottieViewerUITests */,
+				15447A1B2D2C698700DB7205 /* Preview */,
+				15447A182D2C698700DB7205 /* Frameworks */,
 				154478ED2D281E1F00DB7205 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -106,8 +156,17 @@
 				154478EC2D281E1F00DB7205 /* LottieViewer.app */,
 				154479002D281E2100DB7205 /* LottieViewerTests.xctest */,
 				1544790A2D281E2100DB7205 /* LottieViewerUITests.xctest */,
+				15447A172D2C698700DB7205 /* Preview.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		15447A182D2C698700DB7205 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				15447A192D2C698700DB7205 /* Quartz.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,10 +179,12 @@
 				154478E82D281E1F00DB7205 /* Sources */,
 				154478E92D281E1F00DB7205 /* Frameworks */,
 				154478EA2D281E1F00DB7205 /* Resources */,
+				15447A282D2C698700DB7205 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				15447A262D2C698700DB7205 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				154478EE2D281E1F00DB7205 /* LottieViewer */,
@@ -182,6 +243,28 @@
 			productReference = 1544790A2D281E2100DB7205 /* LottieViewerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		15447A162D2C698700DB7205 /* Preview */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15447A2B2D2C698700DB7205 /* Build configuration list for PBXNativeTarget "Preview" */;
+			buildPhases = (
+				15447A132D2C698700DB7205 /* Sources */,
+				15447A142D2C698700DB7205 /* Frameworks */,
+				15447A152D2C698700DB7205 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				15447A1B2D2C698700DB7205 /* Preview */,
+			);
+			name = Preview;
+			packageProductDependencies = (
+			);
+			productName = Preview;
+			productReference = 15447A172D2C698700DB7205 /* Preview.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -202,6 +285,9 @@
 					154479092D281E2100DB7205 = {
 						CreatedOnToolsVersion = 16.2;
 						TestTargetID = 154478EB2D281E1F00DB7205;
+					};
+					15447A162D2C698700DB7205 = {
+						CreatedOnToolsVersion = 16.2;
 					};
 				};
 			};
@@ -226,6 +312,7 @@
 				154478EB2D281E1F00DB7205 /* LottieViewer */,
 				154478FF2D281E2100DB7205 /* LottieViewerTests */,
 				154479092D281E2100DB7205 /* LottieViewerUITests */,
+				15447A162D2C698700DB7205 /* Preview */,
 			);
 		};
 /* End PBXProject section */
@@ -246,6 +333,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		154479082D281E2100DB7205 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15447A152D2C698700DB7205 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -276,6 +370,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		15447A132D2C698700DB7205 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -289,6 +390,11 @@
 			target = 154478EB2D281E1F00DB7205 /* LottieViewer */;
 			targetProxy = 1544790B2D281E2100DB7205 /* PBXContainerItemProxy */;
 		};
+		15447A262D2C698700DB7205 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 15447A162D2C698700DB7205 /* Preview */;
+			targetProxy = 15447A252D2C698700DB7205 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -298,6 +404,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = LottieViewer/LottieViewer.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -326,6 +433,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = LottieViewer/LottieViewer.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -536,6 +644,58 @@
 			};
 			name = Release;
 		};
+		15447A292D2C698700DB7205 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Preview/Preview.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QLPB86L68N;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Preview/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Preview;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.mkj.LottieViewer.Preview;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		15447A2A2D2C698700DB7205 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Preview/Preview.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QLPB86L68N;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Preview/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Preview;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.mkj.LottieViewer.Preview;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -571,6 +731,15 @@
 			buildConfigurations = (
 				1544791C2D281E2100DB7205 /* Debug */,
 				1544791D2D281E2100DB7205 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15447A2B2D2C698700DB7205 /* Build configuration list for PBXNativeTarget "Preview" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15447A292D2C698700DB7205 /* Debug */,
+				15447A2A2D2C698700DB7205 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
