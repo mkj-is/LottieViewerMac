@@ -7,10 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1544797D2D297DC100DB7205 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 1544797C2D297DC100DB7205 /* Lottie */; };
 		15447A1A2D2C698700DB7205 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15447A192D2C698700DB7205 /* Quartz.framework */; };
 		15447A272D2C698700DB7205 /* Preview.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 15447A172D2C698700DB7205 /* Preview.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		15447A2E2D2C6BE200DB7205 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 15447A2D2D2C6BE200DB7205 /* Lottie */; };
+		15447A5C2D2D617D00DB7205 /* QuickLookThumbnailing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15447A5B2D2D617D00DB7205 /* QuickLookThumbnailing.framework */; };
+		15447A5D2D2D617E00DB7205 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15447A192D2C698700DB7205 /* Quartz.framework */; };
+		15447A652D2D617E00DB7205 /* Thumbnail.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 15447A5A2D2D617D00DB7205 /* Thumbnail.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		15447A6C2D2D62BB00DB7205 /* LottieViewerCore in Frameworks */ = {isa = PBXBuildFile; productRef = 15447A6B2D2D62BB00DB7205 /* LottieViewerCore */; };
+		15447A6E2D2D62C000DB7205 /* LottieViewerCore in Frameworks */ = {isa = PBXBuildFile; productRef = 15447A6D2D2D62C000DB7205 /* LottieViewerCore */; };
+		15447A702D2D62C500DB7205 /* LottieViewerCore in Frameworks */ = {isa = PBXBuildFile; productRef = 15447A6F2D2D62C500DB7205 /* LottieViewerCore */; };
+		15447A802D2D814600DB7205 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 15447A7F2D2D814600DB7205 /* Lottie */; };
+		15447A822D2D814A00DB7205 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 15447A812D2D814A00DB7205 /* Lottie */; };
+		15447A842D2D815100DB7205 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 15447A832D2D815100DB7205 /* Lottie */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +42,13 @@
 			remoteGlobalIDString = 15447A162D2C698700DB7205;
 			remoteInfo = Preview;
 		};
+		15447A632D2D617E00DB7205 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 154478E42D281E1F00DB7205 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 15447A592D2D617D00DB7205;
+			remoteInfo = Thumbnail;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,8 +59,39 @@
 			dstSubfolderSpec = 13;
 			files = (
 				15447A272D2C698700DB7205 /* Preview.appex in Embed Foundation Extensions */,
+				15447A652D2D617E00DB7205 /* Thumbnail.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15447A762D2D7A7C00DB7205 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15447A7A2D2D7A8400DB7205 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15447A7E2D2D7A8A00DB7205 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -57,6 +102,9 @@
 		1544790A2D281E2100DB7205 /* LottieViewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LottieViewerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		15447A172D2C698700DB7205 /* Preview.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Preview.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		15447A192D2C698700DB7205 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		15447A5A2D2D617D00DB7205 /* Thumbnail.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Thumbnail.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		15447A5B2D2D617D00DB7205 /* QuickLookThumbnailing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLookThumbnailing.framework; path = System/Library/Frameworks/QuickLookThumbnailing.framework; sourceTree = SDKROOT; };
+		15447A6A2D2D625F00DB7205 /* LottieViewerCore */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = LottieViewerCore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -73,6 +121,13 @@
 				Info.plist,
 			);
 			target = 15447A162D2C698700DB7205 /* Preview */;
+		};
+		15447A692D2D617E00DB7205 /* Exceptions for "Thumbnail" folder in "Thumbnail" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 15447A592D2D617D00DB7205 /* Thumbnail */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -103,6 +158,14 @@
 			path = Preview;
 			sourceTree = "<group>";
 		};
+		15447A5E2D2D617E00DB7205 /* Thumbnail */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				15447A692D2D617E00DB7205 /* Exceptions for "Thumbnail" folder in "Thumbnail" target */,
+			);
+			path = Thumbnail;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +173,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1544797D2D297DC100DB7205 /* Lottie in Frameworks */,
+				15447A6C2D2D62BB00DB7205 /* LottieViewerCore in Frameworks */,
+				15447A842D2D815100DB7205 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,7 +197,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				15447A1A2D2C698700DB7205 /* Quartz.framework in Frameworks */,
-				15447A2E2D2C6BE200DB7205 /* Lottie in Frameworks */,
+				15447A6E2D2D62C000DB7205 /* LottieViewerCore in Frameworks */,
+				15447A822D2D814A00DB7205 /* Lottie in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15447A572D2D617D00DB7205 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15447A5C2D2D617D00DB7205 /* QuickLookThumbnailing.framework in Frameworks */,
+				15447A702D2D62C500DB7205 /* LottieViewerCore in Frameworks */,
+				15447A5D2D2D617E00DB7205 /* Quartz.framework in Frameworks */,
+				15447A802D2D814600DB7205 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,10 +219,12 @@
 		154478E32D281E1F00DB7205 = {
 			isa = PBXGroup;
 			children = (
+				15447A6A2D2D625F00DB7205 /* LottieViewerCore */,
 				154478EE2D281E1F00DB7205 /* LottieViewer */,
 				154479032D281E2100DB7205 /* LottieViewerTests */,
 				1544790D2D281E2100DB7205 /* LottieViewerUITests */,
 				15447A1B2D2C698700DB7205 /* Preview */,
+				15447A5E2D2D617E00DB7205 /* Thumbnail */,
 				15447A182D2C698700DB7205 /* Frameworks */,
 				154478ED2D281E1F00DB7205 /* Products */,
 			);
@@ -159,6 +237,7 @@
 				154479002D281E2100DB7205 /* LottieViewerTests.xctest */,
 				1544790A2D281E2100DB7205 /* LottieViewerUITests.xctest */,
 				15447A172D2C698700DB7205 /* Preview.appex */,
+				15447A5A2D2D617D00DB7205 /* Thumbnail.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -167,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				15447A192D2C698700DB7205 /* Quartz.framework */,
+				15447A5B2D2D617D00DB7205 /* QuickLookThumbnailing.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -182,18 +262,21 @@
 				154478E92D281E1F00DB7205 /* Frameworks */,
 				154478EA2D281E1F00DB7205 /* Resources */,
 				15447A282D2C698700DB7205 /* Embed Foundation Extensions */,
+				15447A762D2D7A7C00DB7205 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				15447A262D2C698700DB7205 /* PBXTargetDependency */,
+				15447A642D2D617E00DB7205 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				154478EE2D281E1F00DB7205 /* LottieViewer */,
 			);
 			name = LottieViewer;
 			packageProductDependencies = (
-				1544797C2D297DC100DB7205 /* Lottie */,
+				15447A6B2D2D62BB00DB7205 /* LottieViewerCore */,
+				15447A832D2D815100DB7205 /* Lottie */,
 			);
 			productName = LottieViewer;
 			productReference = 154478EC2D281E1F00DB7205 /* LottieViewer.app */;
@@ -252,6 +335,7 @@
 				15447A132D2C698700DB7205 /* Sources */,
 				15447A142D2C698700DB7205 /* Frameworks */,
 				15447A152D2C698700DB7205 /* Resources */,
+				15447A7A2D2D7A8400DB7205 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -262,10 +346,36 @@
 			);
 			name = Preview;
 			packageProductDependencies = (
-				15447A2D2D2C6BE200DB7205 /* Lottie */,
+				15447A6D2D2D62C000DB7205 /* LottieViewerCore */,
+				15447A812D2D814A00DB7205 /* Lottie */,
 			);
 			productName = Preview;
 			productReference = 15447A172D2C698700DB7205 /* Preview.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		15447A592D2D617D00DB7205 /* Thumbnail */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15447A662D2D617E00DB7205 /* Build configuration list for PBXNativeTarget "Thumbnail" */;
+			buildPhases = (
+				15447A562D2D617D00DB7205 /* Sources */,
+				15447A572D2D617D00DB7205 /* Frameworks */,
+				15447A582D2D617D00DB7205 /* Resources */,
+				15447A7E2D2D7A8A00DB7205 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				15447A5E2D2D617E00DB7205 /* Thumbnail */,
+			);
+			name = Thumbnail;
+			packageProductDependencies = (
+				15447A6F2D2D62C500DB7205 /* LottieViewerCore */,
+				15447A7F2D2D814600DB7205 /* Lottie */,
+			);
+			productName = Thumbnail;
+			productReference = 15447A5A2D2D617D00DB7205 /* Thumbnail.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -292,6 +402,9 @@
 					15447A162D2C698700DB7205 = {
 						CreatedOnToolsVersion = 16.2;
 					};
+					15447A592D2D617D00DB7205 = {
+						CreatedOnToolsVersion = 16.2;
+					};
 				};
 			};
 			buildConfigurationList = 154478E72D281E1F00DB7205 /* Build configuration list for PBXProject "LottieViewer" */;
@@ -314,6 +427,7 @@
 			targets = (
 				154478EB2D281E1F00DB7205 /* LottieViewer */,
 				15447A162D2C698700DB7205 /* Preview */,
+				15447A592D2D617D00DB7205 /* Thumbnail */,
 				154478FF2D281E2100DB7205 /* LottieViewerTests */,
 				154479092D281E2100DB7205 /* LottieViewerUITests */,
 			);
@@ -343,6 +457,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		15447A152D2C698700DB7205 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15447A582D2D617D00DB7205 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -380,6 +501,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		15447A562D2D617D00DB7205 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -397,6 +525,11 @@
 			isa = PBXTargetDependency;
 			target = 15447A162D2C698700DB7205 /* Preview */;
 			targetProxy = 15447A252D2C698700DB7205 /* PBXContainerItemProxy */;
+		};
+		15447A642D2D617E00DB7205 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 15447A592D2D617D00DB7205 /* Thumbnail */;
+			targetProxy = 15447A632D2D617E00DB7205 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -699,6 +832,58 @@
 			};
 			name = Release;
 		};
+		15447A672D2D617E00DB7205 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Thumbnail/Thumbnail.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QLPB86L68N;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Thumbnail/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Thumbnail;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.mkj.LottieViewer.Thumbnail;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		15447A682D2D617E00DB7205 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Thumbnail/Thumbnail.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QLPB86L68N;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Thumbnail/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Thumbnail;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.mkj.LottieViewer.Thumbnail;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -747,6 +932,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		15447A662D2D617E00DB7205 /* Build configuration list for PBXNativeTarget "Thumbnail" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15447A672D2D617E00DB7205 /* Debug */,
+				15447A682D2D617E00DB7205 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -761,12 +955,29 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1544797C2D297DC100DB7205 /* Lottie */ = {
+		15447A6B2D2D62BB00DB7205 /* LottieViewerCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LottieViewerCore;
+		};
+		15447A6D2D2D62C000DB7205 /* LottieViewerCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LottieViewerCore;
+		};
+		15447A6F2D2D62C500DB7205 /* LottieViewerCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LottieViewerCore;
+		};
+		15447A7F2D2D814600DB7205 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1544797B2D297DC100DB7205 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
 		};
-		15447A2D2D2C6BE200DB7205 /* Lottie */ = {
+		15447A812D2D814A00DB7205 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1544797B2D297DC100DB7205 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		15447A832D2D815100DB7205 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1544797B2D297DC100DB7205 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;

@@ -8,16 +8,7 @@
 import SwiftUI
 import UniformTypeIdentifiers
 import Lottie
-
-extension UTType {
-    static var dotLottie: UTType {
-        UTType(importedAs: "io.dotlottie.lottie")
-    }
-
-    static var lottie: UTType {
-        UTType(importedAs: "com.airbnb.lottie")
-    }
-}
+import LottieViewerCore
 
 struct LottieFileDocument: FileDocument {
 

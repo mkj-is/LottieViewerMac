@@ -8,11 +8,7 @@
 import Cocoa
 import Quartz
 import Lottie
-
-enum LottiePreviewError: Error {
-    /// DotLottie file does not contain any animation.
-    case noAnimations
-}
+import LottieViewerCore
 
 final class PreviewViewController: NSViewController, QLPreviewingController {
 
@@ -32,23 +28,14 @@ final class PreviewViewController: NSViewController, QLPreviewingController {
         self.view = lottieAnimationView
     }
 
-    /*
-    func preparePreviewOfSearchableItem(identifier: String, queryString: String?) async throws {
-        // Implement this method and set QLSupportsSearchableItems to YES in the Info.plist of the extension if you support CoreSpotlight.
-
-        // Perform any setup necessary in order to prepare the view.
-        // Quick Look will display a loading spinner until this returns.
-    }
-    */
-
     func preparePreviewOfFile(at url: URL) async throws {
-        if url.pathExtension == "lottie" {
+        if url.pathExtension == LottieFileExtension.dotLottie.rawValue {
             let animations = try await DotLottieFile.loadedFrom(url: url).animations
             guard let firstAnimation = animations.first else {
                 throw LottiePreviewError.noAnimations
             }
             animationView.animation = firstAnimation.animation
-        } else if url.pathExtension == "json" {
+        } else if url.pathExtension == LottieFileExtension.lottie.rawValue {
             animationView.animation = await LottieAnimation.loadedFrom(url: url)
         }
         animationView.contentMode = .scaleAspectFit
