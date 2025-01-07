@@ -7,16 +7,29 @@
 
 import Cocoa
 import Quartz
+import Lottie
 
-class PreviewViewController: NSViewController, QLPreviewingController {
+enum LottiePreviewError: Error {
+    /// DotLottie file does not contain any animation.
+    case noAnimations
+}
 
-    override var nibName: NSNib.Name? {
-        return NSNib.Name("PreviewViewController")
+final class PreviewViewController: NSViewController, QLPreviewingController {
+
+    private var animationView: LottieAnimationView!
+
+    override init(nibName nibNameOrNil: NSNib.Name?, bundle nibBundleOrNil: Bundle?) {
+        let view = LottieAnimationView()
+        self.animationView = view
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        self.view = view
     }
-
-    override func loadView() {
-        super.loadView()
-        // Do any additional setup after loading the view.
+    
+    required init?(coder: NSCoder) {
+        let lottieAnimationView = LottieAnimationView()
+        self.animationView = lottieAnimationView
+        super.init(coder: coder)
+        self.view = lottieAnimationView
     }
 
     /*
@@ -29,11 +42,17 @@ class PreviewViewController: NSViewController, QLPreviewingController {
     */
 
     func preparePreviewOfFile(at url: URL) async throws {
-        // Add the supported content types to the QLSupportedContentTypes array in the Info.plist of the extension.
-
-        // Perform any setup necessary in order to prepare the view.
-
-        // Quick Look will display a loading spinner until this returns.
+        if url.pathExtension == "lottie" {
+            let animations = try await DotLottieFile.loadedFrom(url: url).animations
+            guard let firstAnimation = animations.first else {
+                throw LottiePreviewError.noAnimations
+            }
+            animationView.animation = firstAnimation.animation
+        } else if url.pathExtension == "json" {
+            animationView.animation = await LottieAnimation.loadedFrom(url: url)
+        }
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
+        animationView.play()
     }
-
 }

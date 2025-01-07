@@ -30,7 +30,6 @@
 				<string>io.dotlottie.lottie</string>
 			</array>
 		</dict>
-		<dict/>
 	</array>
 	<key>UTImportedTypeDeclarations</key>
 	<array>
@@ -71,6 +70,11 @@
 				<key>public.filename-extension</key>
 				<array>
 					<string>json</string>
+				</array>
+				<key>public.mime-type</key>
+				<array>
+					<string>application/json</string>
+					<string>text/x-json</string>
 				</array>
 			</dict>
 		</dict>

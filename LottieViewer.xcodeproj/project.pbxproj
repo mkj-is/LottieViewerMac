@@ -10,6 +10,7 @@
 		1544797D2D297DC100DB7205 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 1544797C2D297DC100DB7205 /* Lottie */; };
 		15447A1A2D2C698700DB7205 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15447A192D2C698700DB7205 /* Quartz.framework */; };
 		15447A272D2C698700DB7205 /* Preview.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 15447A172D2C698700DB7205 /* Preview.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		15447A2E2D2C6BE200DB7205 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 15447A2D2D2C6BE200DB7205 /* Lottie */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +133,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				15447A1A2D2C698700DB7205 /* Quartz.framework in Frameworks */,
+				15447A2E2D2C6BE200DB7205 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +262,7 @@
 			);
 			name = Preview;
 			packageProductDependencies = (
+				15447A2D2D2C6BE200DB7205 /* Lottie */,
 			);
 			productName = Preview;
 			productReference = 15447A172D2C698700DB7205 /* Preview.appex */;
@@ -310,9 +313,9 @@
 			projectRoot = "";
 			targets = (
 				154478EB2D281E1F00DB7205 /* LottieViewer */,
+				15447A162D2C698700DB7205 /* Preview */,
 				154478FF2D281E2100DB7205 /* LottieViewerTests */,
 				154479092D281E2100DB7205 /* LottieViewerUITests */,
-				15447A162D2C698700DB7205 /* Preview */,
 			);
 		};
 /* End PBXProject section */
@@ -759,6 +762,11 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		1544797C2D297DC100DB7205 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1544797B2D297DC100DB7205 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		15447A2D2D2C6BE200DB7205 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1544797B2D297DC100DB7205 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;

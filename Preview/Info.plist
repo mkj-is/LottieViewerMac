@@ -9,7 +9,10 @@
 			<key>QLIsDataBasedPreview</key>
 			<false/>
 			<key>QLSupportedContentTypes</key>
-			<array/>
+			<array>
+				<string>io.dotlottie.lottie</string>
+				<string>com.airbnb.lottie</string>
+			</array>
 			<key>QLSupportsSearchableItems</key>
 			<false/>
 		</dict>
