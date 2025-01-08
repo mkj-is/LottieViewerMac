@@ -1,15 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    " points" : {
-      "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : " bodů"
-          }
-        }
-      }
+    " " : {
+      "comment" : "Non-breaking space",
+      "shouldTranslate" : false
     },
     "×" : {
 
@@ -60,6 +54,16 @@
         }
       }
     },
+    "End:" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Konec:"
+          }
+        }
+      }
+    },
     "Frame rate:" : {
       "localizations" : {
         "cs" : {
@@ -75,7 +79,7 @@
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Informance"
+            "value" : "Informace"
           }
         }
       }
@@ -120,6 +124,17 @@
         }
       }
     },
+    "p" : {
+      "comment" : "Narrow unit – Points",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "b"
+          }
+        }
+      }
+    },
     "Play once" : {
       "localizations" : {
         "cs" : {
@@ -136,6 +151,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rychlost přehrávání"
+          }
+        }
+      }
+    },
+    "points" : {
+      "comment" : "Wide unit – Points",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "bodů"
+          }
+        }
+      }
+    },
+    "pts" : {
+      "comment" : "Abbreviated unit – Points",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "b"
           }
         }
       }
@@ -169,6 +206,9 @@
           }
         }
       }
+    },
+    "Start:" : {
+
     },
     "Version:" : {
       "localizations" : {

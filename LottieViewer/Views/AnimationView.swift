@@ -36,7 +36,7 @@ struct AnimationView: View {
                     }
                 }
                 .padding()
-                .frame(minWidth: 250, maxWidth: 300, maxHeight: .infinity)
+                .frame(minWidth: 150, maxWidth: 300, maxHeight: .infinity)
                 .task(priority: .utility, utilityTask)
             }
         }

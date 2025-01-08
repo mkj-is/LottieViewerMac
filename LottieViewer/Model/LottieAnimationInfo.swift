@@ -32,4 +32,11 @@ struct LottieAnimationInfo: Decodable {
         let duration = (endFrame - startFrame) / frameRate
         return Measurement(value: duration, unit: .seconds)
     }
+
+    var byteMeasurement: Measurement<UnitInformationStorage>? {
+        guard let byteCount else {
+            return nil
+        }
+        return Measurement(value: Double(byteCount), unit: UnitInformationStorage.bytes)
+    }
 }

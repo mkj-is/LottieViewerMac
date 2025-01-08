@@ -22,33 +22,53 @@ struct InfoView: View {
                 GridRow {
                     Text("Resolution:")
                         .font(.headline)
-                    Text(info.width, format: .number) + Text("×") + Text(info.height, format: .number) + Text(" points")
+
+                    let size = Text(info.width, format: .number) + Text("×") + Text(info.height, format: .number) + Text(" ", comment: "Non-breaking space")
+                    let wideLabel = Text("points", comment: "Wide unit – Points")
+                    ViewThatFits(in: .horizontal) {
+                        size + wideLabel
+                        size + Text("pts", comment: "Abbreviated unit – Points")
+                        size + Text("p", comment: "Narrow unit – Points")
+                    }
+                    .accessibilityLabel(wideLabel)
                 }
                 GridRow {
                     Text("Frame rate:")
                         .font(.headline)
-                    Text(Measurement(value: info.frameRate, unit: UnitFrequency.framesPerSecond), format: .measurement(width: .abbreviated))
+                    measurementThatFits(unit: UnitFrequency.self) { width in
+                        Text(Measurement(value: info.frameRate, unit: UnitFrequency.framesPerSecond), format: .measurement(width: width))
+                    }
                 }
                 GridRow {
                     Text("Duration:")
                         .font(.headline)
-                    Text(info.duration, format: .measurement(width: .abbreviated, numberFormatStyle: .number.precision(.fractionLength(2))))
+                    measurementThatFits(unit: UnitDuration.self) { width in
+                        Text(info.duration, format: .measurement(width: width, numberFormatStyle: .number.precision(.fractionLength(2))))
+                    }
                 }
                 GridRow {
-                    Text("Start frame:")
-                        .font(.headline)
+                    ViewThatFits(in: .horizontal) {
+                        Text("Start frame:")
+                        Text("Start:")
+                    }
+                    .font(.headline)
+
                     Text(info.startFrame, format: .number)
                 }
                 GridRow {
-                    Text("End frame:")
-                        .font(.headline)
+                    ViewThatFits(in: .horizontal) {
+                        Text("End frame:")
+                        Text("End:")
+                    }
+                    .font(.headline)
+
                     Text(info.endFrame, format: .number)
                 }
-                if let byteCount = info.byteCount {
+                if let byteMeasurement = info.byteMeasurement {
                     GridRow {
                         Text("Size:")
                             .font(.headline)
-                        Text(Measurement(value: Double(byteCount), unit: UnitInformationStorage.bytes), format: .byteCount(style: .file))
+                        Text(byteMeasurement, format: .byteCount(style: .file))
                     }
                 }
                 GridRow {
@@ -69,6 +89,15 @@ struct InfoView: View {
             }
         }
         .textSelection(.enabled)
+    }
+
+    private func measurementThatFits<U>(unit: U.Type = U.self, text: (Measurement<U>.FormatStyle.UnitWidth) -> Text) -> some View {
+        ViewThatFits(in: .horizontal) {
+            text(.wide)
+            text(.abbreviated)
+            text(.narrow)
+        }
+        .accessibilityLabel(text(.wide))
     }
 }
 
