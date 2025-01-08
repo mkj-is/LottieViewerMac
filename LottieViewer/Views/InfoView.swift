@@ -23,12 +23,11 @@ struct InfoView: View {
                     Text("Resolution:")
                         .font(.headline)
 
-                    let size = Text(info.width, format: .number) + Text("×") + Text(info.height, format: .number) + Text(" ", comment: "Non-breaking space")
-                    let wideLabel = Text("points", comment: "Wide unit – Points")
+                    let wideLabel = Text("\(info.width)×\(info.height) points", comment: "Wide unit – Points")
                     ViewThatFits(in: .horizontal) {
-                        size + wideLabel
-                        size + Text("pts", comment: "Abbreviated unit – Points")
-                        size + Text("p", comment: "Narrow unit – Points")
+                        wideLabel
+                        Text("\(info.width)×\(info.height) pts", comment: "Abbreviated unit – Points")
+                        Text("\(info.width)×\(info.height) p", comment: "Narrow unit – Points")
                     }
                     .accessibilityLabel(wideLabel)
                 }

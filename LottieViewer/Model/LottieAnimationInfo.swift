@@ -14,8 +14,8 @@ struct LottieAnimationInfo: Decodable {
     let frameRate: Double
     let version: String
     let type: Lottie.CoordinateSpace?
-    let width: Double
-    let height: Double
+    let width: Int
+    let height: Int
     var byteCount: Int?
 
     private enum CodingKeys: String, CodingKey {
