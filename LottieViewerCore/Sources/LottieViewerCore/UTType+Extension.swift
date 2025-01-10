@@ -13,6 +13,6 @@ public extension UTType {
     }
 
     static var lottie: UTType {
-        UTType(importedAs: "com.airbnb.lottie")
+        UTType(importedAs: "io.airbnb.lottie")
     }
 }

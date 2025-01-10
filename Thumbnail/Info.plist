@@ -9,7 +9,7 @@
 			<key>QLSupportedContentTypes</key>
 			<array>
 				<string>io.dotlottie.lottie</string>
-				<string>com.airbnb.lottie</string>
+				<string>io.airbnb.lottie</string>
 			</array>
 			<key>QLThumbnailMinimumDimension</key>
 			<integer>0</integer>
