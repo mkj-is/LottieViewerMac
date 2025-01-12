@@ -11,7 +11,6 @@
 		15447A272D2C698700DB7205 /* Preview.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 15447A172D2C698700DB7205 /* Preview.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		15447A5C2D2D617D00DB7205 /* QuickLookThumbnailing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15447A5B2D2D617D00DB7205 /* QuickLookThumbnailing.framework */; };
 		15447A5D2D2D617E00DB7205 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15447A192D2C698700DB7205 /* Quartz.framework */; };
-		15447A652D2D617E00DB7205 /* Thumbnail.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 15447A5A2D2D617D00DB7205 /* Thumbnail.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		15447A6C2D2D62BB00DB7205 /* LottieViewerCore in Frameworks */ = {isa = PBXBuildFile; productRef = 15447A6B2D2D62BB00DB7205 /* LottieViewerCore */; };
 		15447A6E2D2D62C000DB7205 /* LottieViewerCore in Frameworks */ = {isa = PBXBuildFile; productRef = 15447A6D2D2D62C000DB7205 /* LottieViewerCore */; };
 		15447A702D2D62C500DB7205 /* LottieViewerCore in Frameworks */ = {isa = PBXBuildFile; productRef = 15447A6F2D2D62C500DB7205 /* LottieViewerCore */; };
@@ -42,13 +41,6 @@
 			remoteGlobalIDString = 15447A162D2C698700DB7205;
 			remoteInfo = Preview;
 		};
-		15447A632D2D617E00DB7205 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 154478E42D281E1F00DB7205 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 15447A592D2D617D00DB7205;
-			remoteInfo = Thumbnail;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -59,7 +51,6 @@
 			dstSubfolderSpec = 13;
 			files = (
 				15447A272D2C698700DB7205 /* Preview.appex in Embed Foundation Extensions */,
-				15447A652D2D617E00DB7205 /* Thumbnail.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,7 +259,6 @@
 			);
 			dependencies = (
 				15447A262D2C698700DB7205 /* PBXTargetDependency */,
-				15447A642D2D617E00DB7205 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				154478EE2D281E1F00DB7205 /* LottieViewer */,
@@ -525,11 +515,6 @@
 			isa = PBXTargetDependency;
 			target = 15447A162D2C698700DB7205 /* Preview */;
 			targetProxy = 15447A252D2C698700DB7205 /* PBXContainerItemProxy */;
-		};
-		15447A642D2D617E00DB7205 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 15447A592D2D617D00DB7205 /* Thumbnail */;
-			targetProxy = 15447A632D2D617E00DB7205 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
