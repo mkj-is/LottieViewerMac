@@ -15,7 +15,7 @@ struct LottieAnimationInfo {
 
     var version: String?
     var type: Lottie.CoordinateSpace?
-    var width, height: Int?
+    var width, height: Double?
     var layerCount: Int = 0
     var glyphCount: Int = 0
 
@@ -27,6 +27,8 @@ struct LottieAnimationInfo {
         self.frameRate = animation.framerate
         self.markerCount = animation.markerNames.count
 
+        self.byteCount = try? JSONEncoder().encode(animation).count
+
         // Another possibility was to fork Lottie and make these properties public.
         let mirror = Mirror(reflecting: animation)
         for child in mirror.children {
@@ -36,9 +38,9 @@ struct LottieAnimationInfo {
             case "type":
                 self.type = child.value as? Lottie.CoordinateSpace
             case "width":
-                self.width = child.value as? Int
+                self.width = child.value as? Double
             case "height":
-                self.height = child.value as? Int
+                self.height = child.value as? Double
             case "layers":
                 self.layerCount = (child.value as? [Any])?.count ?? 0
             case "glyphs":
@@ -50,7 +52,11 @@ struct LottieAnimationInfo {
     }
 
     /// For use in previews.
-    init(startFrame: AnimationFrameTime, endFrame: AnimationFrameTime, frameRate: Double, markerCount: Int, version: String?, type: CoordinateSpace?, width: Int?, height: Int?, byteCount: Int?) {
+    init(
+        startFrame: AnimationFrameTime, endFrame: AnimationFrameTime, frameRate: Double,
+        markerCount: Int, version: String?, type: CoordinateSpace?,
+        width: Double?, height: Double?, byteCount: Int?
+    ) {
         self.startFrame = startFrame
         self.endFrame = endFrame
         self.frameRate = frameRate

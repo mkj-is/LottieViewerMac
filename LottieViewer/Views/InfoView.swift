@@ -18,6 +18,8 @@ struct InfoView: View {
                     .gridCellColumns(2)
             }
             if let width = info.width, let height = info.height {
+                let width = Int(width)
+                let height = Int(height)
                 GridRow {
                     Text("Resolution:")
                         .font(.headline)
@@ -62,6 +64,25 @@ struct InfoView: View {
                 .font(.headline)
 
                 Text(info.endFrame, format: .number)
+            }
+            GridRow {
+                ViewThatFits(in: .horizontal) {
+                    Text("Root layer count:")
+                    Text("Layer count:")
+                    Text("Layers:")
+                }
+                .font(.headline)
+
+                Text(info.layerCount, format: .number)
+            }
+            GridRow {
+                ViewThatFits(in: .horizontal) {
+                    Text("Glyph count:")
+                    Text("Glyphs:")
+                }
+                .font(.headline)
+
+                Text(info.layerCount, format: .number)
             }
             if let byteMeasurement = info.byteMeasurement {
                 GridRow {

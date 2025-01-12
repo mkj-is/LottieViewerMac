@@ -230,12 +230,52 @@
         }
       }
     },
+    "Glyph count:" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Počet symbolů:"
+          }
+        }
+      }
+    },
+    "Glyphs:" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Symboly:"
+          }
+        }
+      }
+    },
     "Info" : {
       "localizations" : {
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Informace"
+          }
+        }
+      }
+    },
+    "Layer count:" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Počet vrstev:"
+          }
+        }
+      }
+    },
+    "Layers:" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vrstvy:"
           }
         }
       }
@@ -296,6 +336,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rozlišení:"
+          }
+        }
+      }
+    },
+    "Root layer count:" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Počet kořenových vrstev:"
           }
         }
       }
