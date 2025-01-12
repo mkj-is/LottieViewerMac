@@ -11,7 +11,6 @@ import SwiftUI
 struct AnimationViewState {
     var showInfo: Bool = false
     var configuration = AnimationConfigurationViewState()
-    var info: Result<LottieAnimationInfo, Error>?
 }
 
 struct AnimationView: View {
@@ -31,13 +30,10 @@ struct AnimationView: View {
                 VStack(alignment: .leading) {
                     AnimationConfigurationView(state: $state.configuration)
                     Spacer()
-                    if let info = state.info {
-                        InfoView(info: info)
-                    }
+                    InfoView(info: LottieAnimationInfo(animation: animation))
                 }
                 .padding()
                 .frame(minWidth: 150, maxWidth: 300, maxHeight: .infinity)
-                .task(priority: .utility, utilityTask)
             }
         }
         .toolbar {
@@ -50,22 +46,5 @@ struct AnimationView: View {
 
     private func infoAction() {
         state.showInfo.toggle()
-    }
-
-    /// Processes Lottie animation and gets various info and metadata from it.
-    ///
-    /// `LottieAnimation` has most metadata private. We are encoding it and decoding to our own model,
-    ///  so we do not have to access internal variables.
-    @Sendable
-    private func utilityTask() async {
-        guard state.info == nil else {
-            return
-        }
-        state.info = Result {
-            let data = try JSONEncoder().encode(animation)
-            var info = try JSONDecoder().decode(LottieAnimationInfo.self, from: data)
-            info.byteCount = data.count
-            return info
-        }
     }
 }

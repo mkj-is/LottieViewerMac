@@ -8,24 +8,58 @@
 import Lottie
 import Foundation
 
-struct LottieAnimationInfo: Decodable {
-    let startFrame: AnimationFrameTime
-    let endFrame: AnimationFrameTime
+struct LottieAnimationInfo {
+    let startFrame, endFrame: AnimationFrameTime
     let frameRate: Double
-    let version: String
-    let type: Lottie.CoordinateSpace?
-    let width: Int
-    let height: Int
+    let markerCount: Int
+
+    var version: String?
+    var type: Lottie.CoordinateSpace?
+    var width, height: Int?
+    var layerCount: Int = 0
+    var glyphCount: Int = 0
+
     var byteCount: Int?
 
-    private enum CodingKeys: String, CodingKey {
-      case version = "v"
-      case type = "ddd"
-      case startFrame = "ip"
-      case endFrame = "op"
-      case frameRate = "fr"
-      case width = "w"
-      case height = "h"
+    init(animation: LottieAnimation) {
+        self.startFrame = animation.startFrame
+        self.endFrame = animation.endFrame
+        self.frameRate = animation.framerate
+        self.markerCount = animation.markerNames.count
+
+        // Another possibility was to fork Lottie and make these properties public.
+        let mirror = Mirror(reflecting: animation)
+        for child in mirror.children {
+            switch child.label {
+            case "version":
+                self.version = child.value as? String
+            case "type":
+                self.type = child.value as? Lottie.CoordinateSpace
+            case "width":
+                self.width = child.value as? Int
+            case "height":
+                self.height = child.value as? Int
+            case "layers":
+                self.layerCount = (child.value as? [Any])?.count ?? 0
+            case "glyphs":
+                self.glyphCount = (child.value as? [Any])?.count ?? 0
+            default:
+                break
+            }
+        }
+    }
+
+    /// For use in previews.
+    init(startFrame: AnimationFrameTime, endFrame: AnimationFrameTime, frameRate: Double, markerCount: Int, version: String?, type: CoordinateSpace?, width: Int?, height: Int?, byteCount: Int?) {
+        self.startFrame = startFrame
+        self.endFrame = endFrame
+        self.frameRate = frameRate
+        self.markerCount = markerCount
+        self.version = version
+        self.type = type
+        self.width = width
+        self.height = height
+        self.byteCount = byteCount
     }
 
     var duration: Measurement<UnitDuration> {

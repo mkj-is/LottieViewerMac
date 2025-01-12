@@ -240,16 +240,6 @@
         }
       }
     },
-    "Loading info failed." : {
-      "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Načtení informací selhalo."
-          }
-        }
-      }
-    },
     "Loop" : {
       "localizations" : {
         "cs" : {
