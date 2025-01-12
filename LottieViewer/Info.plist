@@ -5,6 +5,8 @@
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeIconSystemGenerated</key>
+			<integer>1</integer>
 			<key>CFBundleTypeName</key>
 			<string>Lottie</string>
 			<key>CFBundleTypeRole</key>
@@ -19,6 +21,8 @@
 			<string>$(PRODUCT_BUNDLE_IDENTIFIER).lottie</string>
 		</dict>
 		<dict>
+			<key>CFBundleTypeIconSystemGenerated</key>
+			<integer>1</integer>
 			<key>CFBundleTypeName</key>
 			<string>DotLottie</string>
 			<key>CFBundleTypeRole</key>
@@ -41,7 +45,12 @@
 			<key>UTTypeDescription</key>
 			<string>DotLottie</string>
 			<key>UTTypeIcons</key>
-			<dict/>
+			<dict>
+				<key>UTTypeIconBadgeName</key>
+				<string>DocumentIcon</string>
+				<key>UTTypeIconText</key>
+				<string>DotLottie</string>
+			</dict>
 			<key>UTTypeIdentifier</key>
 			<string>io.dotlottie.lottie</string>
 			<key>UTTypeTagSpecification</key>
@@ -62,7 +71,12 @@
 			<key>UTTypeDescription</key>
 			<string>Lottie</string>
 			<key>UTTypeIcons</key>
-			<dict/>
+			<dict>
+				<key>UTTypeIconBadgeName</key>
+				<string>DocumentIcon</string>
+				<key>UTTypeIconText</key>
+				<string>Lottie</string>
+			</dict>
 			<key>UTTypeIdentifier</key>
 			<string>io.airbnb.lottie</string>
 			<key>UTTypeTagSpecification</key>
