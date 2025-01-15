@@ -13,7 +13,7 @@ struct AboutScene: Scene {
             AboutView()
                 .toolbar(removing: .title)
         }
-        .windowResizability(.contentMinSize)
+        .windowResizability(.contentSize)
         .restorationBehavior(.disabled)
         .defaultPosition(.center)
     }

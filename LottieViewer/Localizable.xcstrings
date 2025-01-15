@@ -170,10 +170,10 @@
     "¼×" : {
       "shouldTranslate" : false
     },
-    "A simple viewer for Lottie animations" : {
+    "About Lottie Viewer" : {
 
     },
-    "About Lottie Viewer" : {
+    "Acknowledgements" : {
 
     },
     "Auto reverse" : {
@@ -305,6 +305,9 @@
           }
         }
       }
+    },
+    "Lottie" : {
+
     },
     "Lottie version %@" : {
 

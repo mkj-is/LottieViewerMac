@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct AboutView: View {
+    @Environment(\.openWindow) private var openWindow
+
     var body: some View {
         VStack(alignment: .center) {
             Image(nsImage: NSApp.applicationIconImage)
@@ -19,10 +21,13 @@ struct AboutView: View {
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
 
-            Text("A simple viewer for Lottie animations")
-                .multilineTextAlignment(.center)
+            Button("Acknowledgements") {
+                openWindow(id: WindowID.acknowledgements.rawValue)
+            }
+            .padding(.top)
         }
         .padding()
+        .frame(minWidth: 250, minHeight: 200)
     }
 }
 

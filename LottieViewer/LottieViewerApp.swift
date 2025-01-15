@@ -9,6 +9,7 @@ import SwiftUI
 
 enum WindowID: String {
     case about
+    case acknowledgements
 }
 
 @main
@@ -32,5 +33,6 @@ struct LottieViewerApp: App {
         }
 
         AboutScene()
+        AcknowledgementsScene()
     }
 }
