@@ -170,6 +170,12 @@
     "¼×" : {
       "shouldTranslate" : false
     },
+    "A simple viewer for Lottie animations" : {
+
+    },
+    "About Lottie Viewer" : {
+
+    },
     "Auto reverse" : {
       "localizations" : {
         "cs" : {
@@ -300,6 +306,9 @@
         }
       }
     },
+    "Lottie Viewer for Mac" : {
+
+    },
     "No animations included in this file." : {
       "localizations" : {
         "cs" : {
@@ -379,6 +388,9 @@
           }
         }
       }
+    },
+    "Version %@" : {
+
     },
     "Version:" : {
       "localizations" : {
