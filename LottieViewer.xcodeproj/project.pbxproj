@@ -249,6 +249,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 154479132D281E2100DB7205 /* Build configuration list for PBXNativeTarget "LottieViewer" */;
 			buildPhases = (
+				15A64B712D3849A9004BE70E /* Generate Lottie Metadata */,
 				154478E82D281E1F00DB7205 /* Sources */,
 				154478E92D281E1F00DB7205 /* Frameworks */,
 				154478EA2D281E1F00DB7205 /* Resources */,
@@ -461,6 +462,30 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		15A64B712D3849A9004BE70E /* Generate Lottie Metadata */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Scripts/generate-lottie-metadata.sh",
+				"$(SRCROOT)/LottieViewer.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved",
+			);
+			name = "Generate Lottie Metadata";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/LottieViewer/Generated/LottieMetadata.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -f \"${SRCROOT}/Scripts/generate-lottie-metadata.sh\" ]; then\n    \"${SRCROOT}/Scripts/generate-lottie-metadata.sh\" ${SRCROOT}\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		154478E82D281E1F00DB7205 /* Sources */ = {

@@ -14,7 +14,11 @@ struct AboutView: View {
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
             }
-            
+
+            Text("Lottie version \(LottieMetadata.version)")
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+
             Text("A simple viewer for Lottie animations")
                 .multilineTextAlignment(.center)
         }
