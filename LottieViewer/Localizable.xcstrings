@@ -171,10 +171,24 @@
       "shouldTranslate" : false
     },
     "About Lottie Viewer" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O aplikaci Lottie Viewer"
+          }
+        }
+      }
     },
     "Acknowledgements" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Licence"
+          }
+        }
+      }
     },
     "Auto reverse" : {
       "localizations" : {
@@ -307,13 +321,27 @@
       }
     },
     "Lottie" : {
-
+      "shouldTranslate" : false
     },
     "Lottie version %@" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verze Lottie %@"
+          }
+        }
+      }
     },
     "Lottie Viewer for Mac" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lottie Viewer pro Mac"
+          }
+        }
+      }
     },
     "No animations included in this file." : {
       "localizations" : {
@@ -396,7 +424,14 @@
       }
     },
     "Version %@" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verze %@"
+          }
+        }
+      }
     },
     "Version:" : {
       "localizations" : {
