@@ -474,6 +474,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Scripts/generate-lottie-metadata.sh",
 				"$(SRCROOT)/LottieViewer.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved",
+				"${BUILD_DIR}/../../SourcePackages/checkouts/lottie-ios/LICENSE",
 			);
 			name = "Generate Lottie Metadata";
 			outputFileListPaths = (
@@ -483,7 +484,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ -f \"${SRCROOT}/Scripts/generate-lottie-metadata.sh\" ]; then\n    \"${SRCROOT}/Scripts/generate-lottie-metadata.sh\" ${SRCROOT}\nfi\n";
+			shellScript = "if [ -f \"${SRCROOT}/Scripts/generate-lottie-metadata.sh\" ]; then\n    \"${SRCROOT}/Scripts/generate-lottie-metadata.sh\" ${BUILD_DIR}\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
