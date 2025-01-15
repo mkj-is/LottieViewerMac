@@ -31,8 +31,6 @@ struct LottieViewerApp: App {
             }
         }
 
-        Window("About Lottie Viewer", id: WindowID.about.rawValue) {
-            AboutView()
-        }
+        AboutScene()
     }
 }
