@@ -28,6 +28,7 @@ struct AboutView: View {
         }
         .padding()
         .frame(minWidth: 250, minHeight: 200)
+        .textSelection(.enabled)
     }
 }
 

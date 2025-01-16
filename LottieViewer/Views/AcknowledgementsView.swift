@@ -12,6 +12,7 @@ struct AcknowledgementsView: View {
                 .frame(maxWidth: .infinity)
         }
         .frame(minWidth: 700)
+        .textSelection(.enabled)
     }
 }
 
