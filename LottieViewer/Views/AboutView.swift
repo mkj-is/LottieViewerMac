@@ -11,8 +11,8 @@ struct AboutView: View {
 
             Text("Lottie Viewer for Mac")
                 .font(.title)
-            if let version = Bundle.main.appVersion {
-                Text("Version \(version)")
+            if let longVersionString {
+                Text("Version \(longVersionString)")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
             }
@@ -29,6 +29,18 @@ struct AboutView: View {
         .padding()
         .frame(minWidth: 250, minHeight: 200)
         .textSelection(.enabled)
+    }
+
+    private var longVersionString: String? {
+        let bundleInfo = Bundle.main.infoDictionary
+        guard let shortVersionString = bundleInfo?["CFBundleShortVersionString"] as? String,
+            let bundleVersion = bundleInfo?["CFBundleVersion"] as? String
+        else {
+            return nil
+        }
+        return "\(shortVersionString) (\(bundleVersion))"
+
+
     }
 }
 
