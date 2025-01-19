@@ -393,6 +393,26 @@
         }
       }
     },
+    "Settings" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nastavení"
+          }
+        }
+      }
+    },
+    "Show Info Panel by default" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobrazit informační panel automaticky"
+          }
+        }
+      }
+    },
     "Size:" : {
       "localizations" : {
         "cs" : {
