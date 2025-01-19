@@ -10,6 +10,7 @@ import SwiftUI
 enum WindowID: String {
     case about
     case acknowledgements
+    case settings
 }
 
 @main
@@ -30,9 +31,15 @@ struct LottieViewerApp: App {
                     openWindow(id: WindowID.about.rawValue)
                 }
             }
+            CommandGroup(replacing: .appSettings) {
+                Button("Settings") {
+                    openWindow(id: WindowID.settings.rawValue)
+                }
+            }
         }
 
         AboutScene()
         AcknowledgementsScene()
+        SettingsScene()
     }
 }
