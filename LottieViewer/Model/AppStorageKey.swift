@@ -6,8 +6,18 @@
 //
 
 
-import Foundation
+import SwiftUI
 
-enum AppStorageKey: String {
-    case showInfoByDefault = "settings.show-info-by-default"
+@propertyWrapper
+struct ShowInfoAppStorage: DynamicProperty {
+    @AppStorage("settings.show-info-by-default") private var showInfoByDefault = true
+
+    var wrappedValue: Bool {
+        get { showInfoByDefault }
+        nonmutating set { showInfoByDefault = newValue }
+    }
+
+    var projectedValue: Binding<Bool> {
+        $showInfoByDefault
+    }
 }

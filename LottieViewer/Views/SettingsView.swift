@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @AppStorage(AppStorageKey.showInfoByDefault.rawValue) private var showInfoByDefault = true
-    
+    @ShowInfoAppStorage private var showInfoByDefault
+
     var body: some View {
         Form {
             Toggle("Show Info Panel by default", isOn: $showInfoByDefault)

@@ -18,7 +18,7 @@ struct AnimationView: View {
 
     @State private var state = AnimationViewState()
 
-    @AppStorage(AppStorageKey.showInfoByDefault.rawValue) private var showInfoByDefault = true
+    @ShowInfoAppStorage private var showInfoByDefault
 
     var body: some View {
         HSplitView {
