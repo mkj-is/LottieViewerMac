@@ -6,7 +6,6 @@ struct AcknowledgementsScene: Scene {
             AcknowledgementsView()
         }
         .defaultSize(width: 600, height: 400)
-        .restorationBehavior(.disabled)
         .defaultPosition(.center)
     }
 } 

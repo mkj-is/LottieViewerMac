@@ -5,15 +5,16 @@ import PackageDescription
 
 let package = Package(
     name: "LottieViewerCore",
-    platforms: [.macOS(.v15)],
+    platforms: [.macOS(.v14)],
     products: [
         .library(
             name: "LottieViewerCore",
-            targets: ["LottieViewerCore"]),
+            targets: ["LottieViewerCore"]
+        ),
     ],
     targets: [
         .target(
-            name: "LottieViewerCore"),
-
+            name: "LottieViewerCore"
+        ),
     ]
 )

@@ -11,10 +11,8 @@ struct AboutScene: Scene {
     var body: some Scene {
         Window("About Lottie Viewer", id: WindowID.about.rawValue) {
             AboutView()
-                .toolbar(removing: .title)
         }
         .windowResizability(.contentSize)
-        .restorationBehavior(.disabled)
         .defaultPosition(.center)
     }
 }

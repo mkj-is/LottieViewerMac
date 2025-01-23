@@ -13,7 +13,6 @@ struct SettingsScene: Scene {
             SettingsView()
         }
         .windowResizability(.contentSize)
-        .restorationBehavior(.disabled)
         .defaultPosition(.center)
     }
 }
