@@ -93,8 +93,12 @@ struct InfoView: View {
             }
             if let version = info.version {
                 GridRow {
-                    Text("Version:")
-                        .font(.headline)
+                    ViewThatFits(in: .horizontal) {
+                        Text("File version:")
+                        Text("Version:")
+                    }
+                    .font(.headline)
+
                     Text(version)
                 }
             }

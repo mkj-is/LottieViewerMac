@@ -240,6 +240,16 @@
         }
       }
     },
+    "File version:" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verze souboru:"
+          }
+        }
+      }
+    },
     "Frame rate:" : {
       "localizations" : {
         "cs" : {
