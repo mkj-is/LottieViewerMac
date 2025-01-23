@@ -1,7 +1,9 @@
 import SwiftUI
+import LottieViewerCore
 
 struct AboutView: View {
     @Environment(\.openWindow) private var openWindow
+    @Environment(\.openURL) private var openURL
 
     var body: some View {
         VStack(alignment: .center) {
@@ -11,15 +13,24 @@ struct AboutView: View {
 
             Text("Lottie Viewer for Mac")
                 .font(.title)
+
+            Text("Made by [Matěj Kašpar Jirásek](https://iosdev.space/@mkj) in Brno, Czechia")
+                .font(.subheadline.bold())
+                .textCase(.uppercase)
+                .foregroundStyle(.secondary)
+
+            Button("Source on GitHub") {
+                openURL(Constant.githubUrl)
+            }
+            .buttonStyle(.link)
+
             if let longVersionString {
                 Text("Version \(longVersionString)")
                     .font(.subheadline)
-                    .foregroundStyle(.secondary)
             }
 
             Text("Lottie version \(LottieMetadata.version)")
                 .font(.subheadline)
-                .foregroundStyle(.secondary)
 
             Button("Acknowledgements") {
                 openWindow(id: WindowID.acknowledgements.rawValue)
@@ -27,7 +38,7 @@ struct AboutView: View {
             .padding(.top)
         }
         .padding()
-        .frame(minWidth: 250, minHeight: 200)
+        .frame(minWidth: 330, minHeight: 250)
         .textSelection(.enabled)
     }
 

@@ -343,6 +343,16 @@
         }
       }
     },
+    "Made by [Matěj Kašpar Jirásek](https://iosdev.space/@mkj) in Brno, Czechia" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vytvořil [Matěj Kašpar Jirásek](https://iosdev.space/@mkj) v Brně"
+          }
+        }
+      }
+    },
     "No animations included in this file." : {
       "localizations" : {
         "cs" : {
@@ -419,6 +429,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Velikost:"
+          }
+        }
+      }
+    },
+    "Source on GitHub" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zdrojový kód na serveru GitHub"
           }
         }
       }
