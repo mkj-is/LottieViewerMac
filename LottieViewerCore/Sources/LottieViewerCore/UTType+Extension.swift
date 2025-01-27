@@ -8,11 +8,6 @@
 import UniformTypeIdentifiers
 
 public extension UTType {
-    static var dotLottie: UTType {
-        UTType(importedAs: "io.dotlottie.lottie")
-    }
-
-    static var lottie: UTType {
-        UTType(importedAs: "io.airbnb.lottie")
-    }
+    static let dotLottie = UTType(importedAs: "io.dotlottie.lottie")
+    static let lottie: UTType = .json
 }
