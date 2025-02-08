@@ -35,6 +35,7 @@ struct LottieViewerApp: App {
                 Button("Settings") {
                     openWindow(id: WindowID.settings.rawValue)
                 }
+                .keyboardShortcut(",")
             }
         }
 
