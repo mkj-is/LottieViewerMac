@@ -41,8 +41,12 @@ struct AnimationView: View {
         }
         .toolbar {
             ToolbarItem(placement: .principal) {
-                Button(state.playing ? "Pause" : "Play", systemImage: state.playing ? "pause.fill" : "play.fill", action: togglePlaying)
-                    .keyboardShortcut(.space, modifiers: [])
+                Button(
+                    state.playing ? "Pause" : "Play",
+                    systemImage: state.playing ? "pause.fill" : "play.fill",
+                    action: togglePlaying
+                )
+                .keyboardShortcut(.space, modifiers: [])
             }
             ToolbarItem {
                 Button("Info", systemImage: showInfo ? "info.circle.fill" : "info.circle", action: toggleInfoView)
