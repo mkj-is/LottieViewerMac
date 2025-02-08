@@ -15,7 +15,7 @@ struct AnimationViewState {
 }
 
 struct AnimationView: View {
-    let animation: LottieAnimation
+    let animation: LottieFileDocument.Animation
 
     @State private var state = AnimationViewState()
 
@@ -23,7 +23,8 @@ struct AnimationView: View {
 
     var body: some View {
         HSplitView {
-            LottieView(animation: animation)
+            LottieView(animation: animation.animation)
+                .configure(configure)
                 .playbackMode(playbackMode)
                 .animationSpeed(state.configuration.speed)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -33,7 +34,7 @@ struct AnimationView: View {
                 VStack(alignment: .leading) {
                     AnimationConfigurationView(state: $state.configuration)
                     Spacer()
-                    InfoView(info: LottieAnimationInfo(animation: animation))
+                    InfoView(info: LottieAnimationInfo(animation: animation.animation))
                 }
                 .padding()
                 .frame(minWidth: 150, maxWidth: 300, maxHeight: .infinity)
@@ -64,6 +65,12 @@ struct AnimationView: View {
             return .playing(.fromProgress(0, toProgress: 1, loopMode: state.configuration.loopMode))
         } else {
             return .paused
+        }
+    }
+
+    private func configure(view: LottieAnimationView) {
+        if let imageProvider = animation.configuration?.imageProvider {
+            view.imageProvider = imageProvider
         }
     }
 

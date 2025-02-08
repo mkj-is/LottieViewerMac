@@ -12,14 +12,9 @@ import LottieViewerCore
 
 struct LottieFileDocument: FileDocument {
 
-    struct Animation: Identifiable {
-        let id: String
+    struct Animation {
+        let configuration: DotLottieConfiguration?
         let animation: LottieAnimation
-
-        init(id: String?, animation: LottieAnimation) {
-            self.id = id ?? "Animation"
-            self.animation = animation
-        }
     }
 
     enum FileWrapperError: Error {
@@ -39,22 +34,22 @@ struct LottieFileDocument: FileDocument {
         }
         if configuration.contentType == .lottie {
             let animation = try LottieAnimation.from(data: data)
-            animations = [Animation(id: configuration.file.filename, animation: animation)]
+            animations = [Animation(configuration: nil, animation: animation)]
         } else if configuration.contentType == .dotLottie {
-            animations = try LottieFileDocument.loadDotLottie(configuration: configuration, data: data)
+            let file = try LottieFileDocument.loadDotLottie(configuration: configuration, data: data)
+            animations = file.animations.map { animation in
+                Animation(configuration: animation.configuration, animation: animation.animation)
+            }
         } else {
             throw FileWrapperError.unknownContentType
         }
     }
 
-    private static func loadDotLottie(configuration: ReadConfiguration, data: Data) throws -> [Animation] {
+    private static func loadDotLottie(configuration: ReadConfiguration, data: Data) throws -> DotLottieFile {
         guard let filename = configuration.file.filename else {
             throw FileWrapperError.noFilename
         }
-        let dotLottieFile = try DotLottieFile.SynchronouslyBlockingCurrentThread.loadedFrom(data: data, filename: filename).get()
-        return dotLottieFile.animations.map { animation in
-            Animation(id: animation.configuration.id, animation: animation.animation)
-        }
+        return try DotLottieFile.SynchronouslyBlockingCurrentThread.loadedFrom(data: data, filename: filename).get()
     }
 
     func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {

@@ -10,7 +10,7 @@ import Lottie
 
 struct DocumentViewState {
     var animation: LottieAnimation?
-    var selection: LottieFileDocument.Animation.ID?
+    var selection: String?
 }
 
 struct DocumentView: View {
@@ -19,11 +19,11 @@ struct DocumentView: View {
     @State private var state = DocumentViewState()
 
     var body: some View {
-        if let firstAnimation = document.animations.first?.animation {
+        if let firstAnimation = document.animations.first {
             if document.animations.count > 1 {
                 NavigationSplitView {
-                    List(document.animations, selection: $state.selection) { animation in
-                        Text(animation.id)
+                    List(identifiers, id: \.self, selection: $state.selection) { identifier in
+                        Text(identifier)
                     }
                 } detail: {
                     AnimationView(animation: selectedAnimation ?? firstAnimation)
@@ -37,9 +37,13 @@ struct DocumentView: View {
         }
     }
 
-    private var selectedAnimation: LottieAnimation? {
+    private var identifiers: [String] {
+        document.animations.compactMap(\.configuration).map(\.id)
+    }
+
+    private var selectedAnimation: LottieFileDocument.Animation? {
         document.animations.first(where: { animation in
-            animation.id == state.selection
-        })?.animation
+            animation.configuration?.id == state.selection
+        })
     }
 }
