@@ -30,11 +30,8 @@ final class PreviewViewController: NSViewController, QLPreviewingController {
 
     func preparePreviewOfFile(at url: URL) async throws {
         if url.pathExtension == LottieFileExtension.dotLottie.rawValue {
-            let animations = try await DotLottieFile.loadedFrom(url: url).animations
-            guard let firstAnimation = animations.first else {
-                throw LottiePreviewError.noAnimations
-            }
-            animationView.animation = firstAnimation.animation
+            let file = try await DotLottieFile.loadedFrom(url: url)
+            animationView.loadAnimation(from: file)
         } else if url.pathExtension == LottieFileExtension.lottie.rawValue {
             animationView.animation = await LottieAnimation.loadedFrom(url: url)
         }

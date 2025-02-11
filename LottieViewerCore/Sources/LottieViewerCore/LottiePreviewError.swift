@@ -6,8 +6,6 @@
 //
 
 public enum LottiePreviewError: Error {
-    /// DotLottie file does not contain any animation.
-    case noAnimations
     /// Animation not decoded.
     case notDecoded
     /// Unknown file format.
