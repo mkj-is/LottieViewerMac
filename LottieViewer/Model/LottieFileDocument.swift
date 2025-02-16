@@ -13,6 +13,7 @@ import LottieViewerCore
 struct LottieFileDocument: FileDocument {
 
     struct Animation {
+        let data: Data
         let configuration: DotLottieConfiguration?
         let animation: LottieAnimation
     }
@@ -34,11 +35,11 @@ struct LottieFileDocument: FileDocument {
         }
         if configuration.contentType == .lottie {
             let animation = try LottieAnimation.from(data: data)
-            animations = [Animation(configuration: nil, animation: animation)]
+            animations = [Animation(data: data, configuration: nil, animation: animation)]
         } else if configuration.contentType == .dotLottie {
             let file = try LottieFileDocument.loadDotLottie(configuration: configuration, data: data)
             animations = file.animations.map { animation in
-                Animation(configuration: animation.configuration, animation: animation.animation)
+                Animation(data: data, configuration: animation.configuration, animation: animation.animation)
             }
         } else {
             throw FileWrapperError.unknownContentType

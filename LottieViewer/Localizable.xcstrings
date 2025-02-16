@@ -210,6 +210,9 @@
         }
       }
     },
+    "dotlottie-ios" : {
+      "shouldTranslate" : false
+    },
     "Duration:" : {
       "localizations" : {
         "cs" : {
@@ -310,6 +313,16 @@
         }
       }
     },
+    "Library" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Knihovna"
+          }
+        }
+      }
+    },
     "Loop" : {
       "localizations" : {
         "cs" : {
@@ -352,6 +365,9 @@
           }
         }
       }
+    },
+    "lottie-ios" : {
+      "shouldTranslate" : false
     },
     "Made by [Matěj Kašpar Jirásek](https://iosdev.space/@mkj) in Brno, Czechia" : {
       "localizations" : {

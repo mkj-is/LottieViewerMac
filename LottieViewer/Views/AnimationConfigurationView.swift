@@ -13,6 +13,7 @@ struct AnimationConfigurationViewState {
     /// Indicates step in slider, exponent of 2. Not actual speed.
     var speedExponent = 0.0
     var backgroundColor: Color = .clear
+    var library: LottieLibrary = .lottie
 
     var speed: Double {
         pow(2.0, speedExponent)
@@ -37,6 +38,13 @@ struct AnimationConfigurationView: View {
             maximumValueLabel: { Text("8×") }
 
             ColorPicker("Background color", selection: $state.backgroundColor)
+
+            Picker("Library", selection: $state.library) {
+                ForEach(LottieLibrary.allCases) { library in
+                    Text(library.localizedStringKey).tag(library)
+                }
+            }
+
         }
     }
 }

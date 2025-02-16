@@ -26,10 +26,10 @@ struct DocumentView: View {
                         Text(identifier)
                     }
                 } detail: {
-                    AnimationView(animation: selectedAnimation ?? firstAnimation)
+                    AnimationView(animation: selectedAnimation ?? firstAnimation, id: state.selection)
                 }
             } else {
-                AnimationView(animation: firstAnimation)
+                AnimationView(animation: firstAnimation, id: state.selection)
             }
         } else {
             Text("No animations included in this file.")
