@@ -478,8 +478,8 @@
 			inputPaths = (
 				"$(SRCROOT)/Scripts/generate-package-metadata.sh",
 				"$(SRCROOT)/LottieViewer.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved",
-				"${BUILD_DIR}/../../SourcePackages/checkouts/lottie-ios/LICENSE",
-				"${BUILD_DIR}/../../SourcePackages/checkouts/dotlottie-ios/LICENSE",
+				"${BUILD_DIR%/Build/*}/SourcePackages/checkouts",
+				"${BUILT_PRODUCTS_DIR}/SwiftPackageProducts",
 			);
 			name = "Generate Package Metadata";
 			outputFileListPaths = (
@@ -489,7 +489,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ -f \"${SRCROOT}/Scripts/generate-package-metadata.sh\" ]; then\n    \"${SRCROOT}/Scripts/generate-package-metadata.sh\" ${BUILD_DIR}\nfi\n";
+			shellScript = "if [ -f \"${SRCROOT}/Scripts/generate-package-metadata.sh\" ]; then\n    \"${SRCROOT}/Scripts/generate-package-metadata.sh\" ${BUILD_DIR} ${BUILT_PRODUCTS_DIR}\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
