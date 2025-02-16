@@ -210,9 +210,6 @@
         }
       }
     },
-    "DotLottie" : {
-      "shouldTranslate" : false
-    },
     "Duration:" : {
       "localizations" : {
         "cs" : {
@@ -372,6 +369,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "V tomto souboru nejdou žádné animace."
+          }
+        }
+      }
+    },
+    "Open repository in browser" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otevřít repozitář v prohlížeči"
           }
         }
       }

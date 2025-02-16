@@ -23,6 +23,8 @@ struct AnimationConfigurationViewState {
 struct AnimationConfigurationView: View {
     @Binding var state: AnimationConfigurationViewState
 
+    @Environment(\.openURL) private var openURL
+
     var body: some View {
         VStack(alignment: .leading) {
             Picker(selection: $state.loopMode, label: Text("Loop mode")) {
@@ -39,16 +41,32 @@ struct AnimationConfigurationView: View {
 
             ColorPicker("Background color", selection: $state.backgroundColor)
 
-            Picker("Library", selection: $state.library) {
-                ForEach(LottieLibrary.allCases) { library in
-                    Text(library.rawValue).tag(library)
+            HStack {
+                Picker("Library", selection: $state.library) {
+                    ForEach(LottieLibrary.allCases) { library in
+                        Text(library.description).tag(library)
+                    }
                 }
+                Button(action: openLibraryURL) {
+                    Image(systemName: "arrowshape.forward.circle")
+                        .foregroundStyle(Color.accentColor)
+                }
+                .help("Open repository in browser")
+                .buttonStyle(.plain)
             }
-
         }
+    }
+
+    private func openLibraryURL() {
+        guard let package = state.library.package else {
+            return
+        }
+        openURL(package.location)
     }
 }
 
 #Preview {
     AnimationConfigurationView(state: .constant(AnimationConfigurationViewState()))
+        .frame(maxWidth: 300)
+        .padding()
 }

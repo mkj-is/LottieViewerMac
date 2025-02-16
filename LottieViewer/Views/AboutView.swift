@@ -30,10 +30,8 @@ struct AboutView: View {
             }
 
             ForEach(LottieLibrary.allCases) { library in
-                if let package = library.package {
-                    (Text(library.name) + Text(verbatim: " ") + Text(package.version))
-                        .font(.subheadline)
-                }
+                Text(library.description)
+                    .font(.subheadline)
             }
 
             Button("Acknowledgements") {

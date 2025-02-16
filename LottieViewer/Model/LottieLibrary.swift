@@ -18,13 +18,20 @@ enum LottieLibrary: String, CaseIterable, Identifiable {
         rawValue
     }
 
-    var name: LocalizedStringKey {
+    private var name: String {
         switch self {
         case .lottie:
             return "Lottie"
         case .dotLottie:
             return "DotLottie"
         }
+    }
+
+    var description: String {
+        if let package {
+            return name + " " + package.version
+        }
+        return name
     }
 
     var package: Package? {
