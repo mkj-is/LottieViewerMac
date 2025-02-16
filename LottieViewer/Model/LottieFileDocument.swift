@@ -7,12 +7,12 @@
 
 import SwiftUI
 import UniformTypeIdentifiers
-import Lottie
+@preconcurrency import Lottie
 import LottieViewerCore
 
 struct LottieFileDocument: FileDocument {
 
-    struct Animation {
+    struct Animation: Sendable {
         let data: Data
         let configuration: DotLottieConfiguration?
         let animation: LottieAnimation

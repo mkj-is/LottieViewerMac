@@ -5,7 +5,7 @@
 //  Created by Matěj Kašpar Jirásek on 10.01.2025.
 //
 
-import Lottie
+@preconcurrency import Lottie
 import LottieViewerCore
 import OSLog
 
