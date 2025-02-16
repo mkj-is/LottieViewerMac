@@ -210,7 +210,7 @@
         }
       }
     },
-    "dotlottie-ios" : {
+    "DotLottie" : {
       "shouldTranslate" : false
     },
     "Duration:" : {
@@ -346,16 +346,6 @@
     "Lottie" : {
       "shouldTranslate" : false
     },
-    "Lottie version %@" : {
-      "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Verze Lottie %@"
-          }
-        }
-      }
-    },
     "Lottie Viewer for Mac" : {
       "localizations" : {
         "cs" : {
@@ -365,9 +355,6 @@
           }
         }
       }
-    },
-    "lottie-ios" : {
-      "shouldTranslate" : false
     },
     "Made by [Matěj Kašpar Jirásek](https://iosdev.space/@mkj) in Brno, Czechia" : {
       "localizations" : {

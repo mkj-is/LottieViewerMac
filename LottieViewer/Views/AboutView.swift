@@ -29,8 +29,12 @@ struct AboutView: View {
                     .font(.subheadline)
             }
 
-            Text("Lottie version \(LottieMetadata.version)")
-                .font(.subheadline)
+            ForEach(LottieLibrary.allCases) { library in
+                if let package = library.package {
+                    (Text(library.name) + Text(verbatim: " ") + Text(package.version))
+                        .font(.subheadline)
+                }
+            }
 
             Button("Acknowledgements") {
                 openWindow(id: WindowID.acknowledgements.rawValue)

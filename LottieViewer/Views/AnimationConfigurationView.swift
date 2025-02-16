@@ -41,7 +41,7 @@ struct AnimationConfigurationView: View {
 
             Picker("Library", selection: $state.library) {
                 ForEach(LottieLibrary.allCases) { library in
-                    Text(library.localizedStringKey).tag(library)
+                    Text(library.rawValue).tag(library)
                 }
             }
 

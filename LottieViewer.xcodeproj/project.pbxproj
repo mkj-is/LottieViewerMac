@@ -479,12 +479,13 @@
 				"$(SRCROOT)/Scripts/generate-package-metadata.sh",
 				"$(SRCROOT)/LottieViewer.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved",
 				"${BUILD_DIR}/../../SourcePackages/checkouts/lottie-ios/LICENSE",
+				"${BUILD_DIR}/../../SourcePackages/checkouts/dotlottie-ios/LICENSE",
 			);
 			name = "Generate Package Metadata";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(SRCROOT)/LottieViewer/Generated/LottieMetadata.swift",
+				"$(SRCROOT)/LottieViewer/Generated/ResolvedPackages.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

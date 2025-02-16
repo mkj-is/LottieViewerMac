@@ -7,23 +7,27 @@
 
 import SwiftUI
 
-enum LottieLibrary: Int, CaseIterable, Identifiable {
+enum LottieLibrary: String, CaseIterable, Identifiable {
 
     /// Original AirBnb Lottie library.
-    case lottie
+    case lottie = "lottie-ios"
     /// Alternative LottieFiles DotLottie library.
-    case dotLottie
+    case dotLottie = "dotlottie-ios"
 
-    var id: Int {
+    var id: String {
         rawValue
     }
 
-    var localizedStringKey: LocalizedStringKey {
+    var name: LocalizedStringKey {
         switch self {
         case .lottie:
-            return "lottie-ios"
+            return "Lottie"
         case .dotLottie:
-            return "dotlottie-ios"
+            return "DotLottie"
         }
+    }
+
+    var package: Package? {
+        ResolvedPackages.dictionary[rawValue]
     }
 }
