@@ -8,28 +8,23 @@
 import SwiftUI
 import Lottie
 
-struct DocumentViewState {
-    var animation: LottieAnimation?
-    var selection: String?
-}
-
 struct DocumentView: View {
     @Binding var document: LottieFileDocument
 
-    @State private var state = DocumentViewState()
+    @State private var selection: String?
 
     var body: some View {
         if let firstAnimation = document.animations.first {
             if document.animations.count > 1 {
                 NavigationSplitView {
-                    List(identifiers, id: \.self, selection: $state.selection) { identifier in
+                    List(identifiers, id: \.self, selection: $selection) { identifier in
                         Text(identifier)
                     }
                 } detail: {
-                    AnimationView(animation: selectedAnimation ?? firstAnimation, id: state.selection)
+                    AnimationView(animation: selectedAnimation ?? firstAnimation, id: selection)
                 }
             } else {
-                AnimationView(animation: firstAnimation, id: state.selection)
+                AnimationView(animation: firstAnimation, id: selection)
             }
         } else {
             Text("No animations included in this file.")
@@ -42,8 +37,8 @@ struct DocumentView: View {
     }
 
     private var selectedAnimation: LottieFileDocument.Animation? {
-        document.animations.first(where: { animation in
-            animation.configuration?.id == state.selection
-        })
+        document.animations.first { animation in
+            animation.configuration?.id == selection
+        }
     }
 }
