@@ -340,9 +340,6 @@
         }
       }
     },
-    "Lottie" : {
-      "shouldTranslate" : false
-    },
     "Lottie Viewer for Mac" : {
       "localizations" : {
         "cs" : {

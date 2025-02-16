@@ -10,4 +10,5 @@ import Foundation
 struct Package {
     let location: URL
     let version: String
+    let license: String
 }

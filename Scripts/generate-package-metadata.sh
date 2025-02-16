@@ -11,15 +11,15 @@ BUILD_DIR="$1"
 
 JSON_FILE="LottieViewer.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved"
 
-# Output Swift file
-SWIFT_FILE="LottieViewer/Generated/ResolvedPackages.swift"
-
 # Find the LICENSE file in SPM cache
 LOTTIE_LICENSE_PATH="${BUILD_DIR}/../../SourcePackages/checkouts/lottie-ios/LICENSE"
 DOTLOTTIE_LICENSE_PATH="${BUILD_DIR}/../../SourcePackages/checkouts/dotlottie-ios/LICENSE"
 
 LOTTIE_LICENSE=$(cat "$LOTTIE_LICENSE_PATH" | sed ':a;N;$!ba;s/\n/\\n/g')
 DOTLOTTIE_LICENSE=$(cat "$LOTTIE_LICENSE_PATH" | sed ':a;N;$!ba;s/\n/\\n/g')
+
+# Output Swift file
+SWIFT_FILE="LottieViewer/Generated/ResolvedPackages.swift"
 
 # Generate the Swift constants file
 cat <<EOF > "$SWIFT_FILE"
@@ -42,10 +42,17 @@ jq -c '.pins[]' "$JSON_FILE" | while read -r pin; do
     LOCATION=$(echo "$pin" | jq -r '.location')
     VERSION=$(echo "$pin" | jq -r '.state.version')
 
+    # Construct the license path based on the identity
+    LICENSE_PATH="${BUILD_DIR}/../../SourcePackages/checkouts/${IDENTITY}/LICENSE"
+    LICENSE=$(sed ':a;N;$!ba;s/\n/\\n/g' "$LICENSE_PATH")
+
     cat <<EOF >> "$SWIFT_FILE"
         "$IDENTITY": Package(
             location: URL(string: "$LOCATION")!,
-            version: "$VERSION"
+            version: "$VERSION",
+            license: """
+$LICENSE
+"""
         ),
 EOF
 done
