@@ -12,7 +12,7 @@ struct AnimationConfigurationViewState {
     var loopMode: LottieLoopMode = .loop
     /// Indicates step in slider, exponent of 2. Not actual speed.
     var speedExponent = 0.0
-    var backgroundColor: Color = .clear
+    var backgroundColor: Color = Color(nsColor: NSColor.windowBackgroundColor)
     var library: LottieLibrary = .lottie
 
     var speed: Double {
