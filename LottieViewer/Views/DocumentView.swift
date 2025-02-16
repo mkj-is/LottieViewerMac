@@ -22,9 +22,11 @@ struct DocumentView: View {
                     }
                 } detail: {
                     AnimationView(animation: selectedAnimation ?? firstAnimation, id: selection)
+                        .environment(\.parseTime, document.parseTime)
                 }
             } else {
                 AnimationView(animation: firstAnimation, id: selection)
+                    .environment(\.parseTime, document.parseTime)
             }
         } else {
             Text("No animations included in this file.")

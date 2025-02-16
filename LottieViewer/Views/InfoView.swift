@@ -10,6 +10,8 @@ import SwiftUI
 struct InfoView: View {
     let info: LottieAnimationInfo
 
+    @Environment(\.parseTime) private var parseTime
+
     var body: some View {
         Grid(alignment: .leading) {
             GridRow {
@@ -102,6 +104,14 @@ struct InfoView: View {
                     Text(version)
                 }
             }
+            if let parseTime {
+                GridRow {
+                    Text("Parse time:")
+                        .font(.headline)
+
+                    measurementThatFits(duration: Measurement(value: parseTime, unit: .seconds))
+                }
+            }
         }
         .textSelection(.enabled)
     }
@@ -113,6 +123,12 @@ struct InfoView: View {
             text(.narrow)
         }
         .accessibilityLabel(text(.wide))
+    }
+
+    private func measurementThatFits(duration: Measurement<UnitDuration>) -> some View {
+        measurementThatFits(unit: UnitDuration.self) { width in
+            Text(duration, format: .measurement(width: width, numberFormatStyle: .number.precision(.fractionLength(2))))
+        }
     }
 }
 

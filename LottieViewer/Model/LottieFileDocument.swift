@@ -25,6 +25,7 @@ struct LottieFileDocument: FileDocument {
     }
 
     let animations: [Animation]
+    let parseTime: TimeInterval
 
     static let readableContentTypes: [UTType] = [.lottie, .dotLottie]
     static let writableContentTypes: [UTType] = []
@@ -33,6 +34,9 @@ struct LottieFileDocument: FileDocument {
         guard let data = configuration.file.regularFileContents else {
             throw CocoaError(.fileReadCorruptFile)
         }
+
+        let parsingTimeStart: Date = .now
+
         if configuration.contentType == .lottie {
             let animation = try LottieAnimation.from(data: data)
             animations = [Animation(data: data, configuration: nil, animation: animation)]
@@ -44,6 +48,8 @@ struct LottieFileDocument: FileDocument {
         } else {
             throw FileWrapperError.unknownContentType
         }
+
+        parseTime = Date.now.timeIntervalSince(parsingTimeStart)
     }
 
     private static func loadDotLottie(configuration: ReadConfiguration, data: Data) throws -> DotLottieFile {

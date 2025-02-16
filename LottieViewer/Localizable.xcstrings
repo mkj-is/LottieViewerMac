@@ -380,6 +380,16 @@
         }
       }
     },
+    "Parse time:" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Čas parsování:"
+          }
+        }
+      }
+    },
     "Pause" : {
       "localizations" : {
         "cs" : {
