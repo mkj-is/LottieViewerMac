@@ -8,6 +8,8 @@ LottieViewer is a macOS application that allows you to view and play Lottie and 
 
 - View Lottie Lottie JSON and DotLottie animations.
 - Preview animations using QuickLook.
+- Preview using both [original library from AirBnb](https://github.com/airbnb/lottie-ios)
+  and alternative [DotLottie library from LottieFiles](https://github.com/LottieFiles/dotlottie-ios).
 - Display detailed information about the animation.
 - Document based native Swift app.
 
