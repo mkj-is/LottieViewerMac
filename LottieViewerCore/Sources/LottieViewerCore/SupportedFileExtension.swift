@@ -1,11 +1,11 @@
 //
-//  LottieFileExtension.swift
+//  SupportedFileExtension.swift
 //  LottieViewerCore
 //
 //  Created by Matěj Kašpar Jirásek on 07.01.2025.
 //
 
-public enum LottieFileExtension: String {
+public enum SupportedFileExtension: String {
     case lottie = "json"
     case dotLottie = "lottie"
 }

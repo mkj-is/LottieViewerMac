@@ -37,13 +37,13 @@ final class ThumbnailProvider: QLThumbnailProvider {
     }
 
     private func loadAnimation(url: URL) async throws -> LottieAnimation {
-        if url.pathExtension == LottieFileExtension.dotLottie.rawValue {
+        if url.pathExtension == SupportedFileExtension.dotLottie.rawValue {
             let animations = try await DotLottieFile.loadedFrom(url: url).animations
             guard let firstAnimation = animations.first else {
                 throw LottiePreviewError.noAnimations
             }
             return firstAnimation.animation
-        } else if url.pathExtension == LottieFileExtension.lottie.rawValue {
+        } else if url.pathExtension == SupportedFileExtension.lottie.rawValue {
             let animation = await LottieAnimation.loadedFrom(url: url)
             guard let animation else {
                 throw LottiePreviewError.noAnimations
