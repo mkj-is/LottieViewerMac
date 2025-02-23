@@ -17,6 +17,7 @@
 		15447A802D2D814600DB7205 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 15447A7F2D2D814600DB7205 /* Lottie */; };
 		15447A822D2D814A00DB7205 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 15447A812D2D814A00DB7205 /* Lottie */; };
 		15447A842D2D815100DB7205 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 15447A832D2D815100DB7205 /* Lottie */; };
+		15577F102D6A28420041E76B /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 15577F0F2D6A28420041E76B /* RiveRuntime */; };
 		1570A7F52D5BD1F1004F4B46 /* DotLottie in Frameworks */ = {isa = PBXBuildFile; productRef = 1570A7F42D5BD1F1004F4B46 /* DotLottie */; };
 /* End PBXBuildFile section */
 
@@ -166,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				15447A6C2D2D62BB00DB7205 /* LottieViewerCore in Frameworks */,
+				15577F102D6A28420041E76B /* RiveRuntime in Frameworks */,
 				15447A842D2D815100DB7205 /* Lottie in Frameworks */,
 				1570A7F52D5BD1F1004F4B46 /* DotLottie in Frameworks */,
 			);
@@ -271,6 +273,7 @@
 				15447A6B2D2D62BB00DB7205 /* LottieViewerCore */,
 				15447A832D2D815100DB7205 /* Lottie */,
 				1570A7F42D5BD1F1004F4B46 /* DotLottie */,
+				15577F0F2D6A28420041E76B /* RiveRuntime */,
 			);
 			productName = LottieViewer;
 			productReference = 154478EC2D281E1F00DB7205 /* LottieViewer.app */;
@@ -414,6 +417,7 @@
 			packageReferences = (
 				1544797B2D297DC100DB7205 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				1570A7F32D5BD1F1004F4B46 /* XCRemoteSwiftPackageReference "dotlottie-ios" */,
+				15577F0E2D6A28420041E76B /* XCRemoteSwiftPackageReference "rive-ios" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 154478ED2D281E1F00DB7205 /* Products */;
@@ -978,6 +982,14 @@
 				minimumVersion = 4.5.1;
 			};
 		};
+		15577F0E2D6A28420041E76B /* XCRemoteSwiftPackageReference "rive-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rive-app/rive-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.7.0;
+			};
+		};
 		1570A7F32D5BD1F1004F4B46 /* XCRemoteSwiftPackageReference "dotlottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/LottieFiles/dotlottie-ios";
@@ -1015,6 +1027,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1544797B2D297DC100DB7205 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		15577F0F2D6A28420041E76B /* RiveRuntime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 15577F0E2D6A28420041E76B /* XCRemoteSwiftPackageReference "rive-ios" */;
+			productName = RiveRuntime;
 		};
 		1570A7F42D5BD1F1004F4B46 /* DotLottie */ = {
 			isa = XCSwiftPackageProductDependency;
