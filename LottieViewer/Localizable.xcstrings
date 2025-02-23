@@ -460,16 +460,6 @@
         }
       }
     },
-    "Settings" : {
-      "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nastavení"
-          }
-        }
-      }
-    },
     "Show Info Panel by default" : {
       "localizations" : {
         "cs" : {

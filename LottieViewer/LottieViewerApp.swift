@@ -31,16 +31,13 @@ struct LottieViewerApp: App {
                     openWindow(id: WindowID.about.rawValue)
                 }
             }
-            CommandGroup(replacing: .appSettings) {
-                Button("Settings") {
-                    openWindow(id: WindowID.settings.rawValue)
-                }
-                .keyboardShortcut(",")
-            }
+        }
+
+        Settings {
+            SettingsView()
         }
 
         AboutScene()
         AcknowledgementsScene()
-        SettingsScene()
     }
 }
