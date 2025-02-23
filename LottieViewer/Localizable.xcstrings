@@ -360,6 +360,16 @@
         }
       }
     },
+    "No animation found." : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Žádná animace nenalezena."
+          }
+        }
+      }
+    },
     "No animations included in this file." : {
       "localizations" : {
         "cs" : {
@@ -506,6 +516,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Začatek:"
+          }
+        }
+      }
+    },
+    "Unknown animation file." : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neznámý soubor animací."
           }
         }
       }

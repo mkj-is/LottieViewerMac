@@ -36,6 +36,22 @@
 			<key>NSUbiquitousDocumentUserActivityType</key>
 			<string>io.dotlottie.lottie</string>
 		</dict>
+		<dict>
+			<key>CFBundleTypeIconSystemGenerated</key>
+			<integer>1</integer>
+			<key>CFBundleTypeName</key>
+			<string>Rive File</string>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>app.rive.rive-file</string>
+			</array>
+			<key>NSUbiquitousDocumentUserActivityType</key>
+			<string>app.rive.rive-file</string>
+		</dict>
 	</array>
 	<key>UTImportedTypeDeclarations</key>
 	<array>
@@ -92,6 +108,38 @@
 				<key>public.mime-type</key>
 				<array>
 					<string>application/json</string>
+				</array>
+			</dict>
+		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>Rive File</string>
+			<key>UTTypeIconFile</key>
+			<string></string>
+			<key>UTTypeIcons</key>
+			<dict>
+				<key>UTTypeIconBackgroundName</key>
+				<string></string>
+				<key>UTTypeIconBadgeName</key>
+				<string>DocumentIcon</string>
+				<key>UTTypeIconText</key>
+				<string>Rive</string>
+			</dict>
+			<key>UTTypeIdentifier</key>
+			<string>app.rive.rive-file</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>riv</string>
+				</array>
+				<key>public.mime-type</key>
+				<array>
+					<string>application/vnd.rive.editor</string>
 				</array>
 			</dict>
 		</dict>

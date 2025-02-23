@@ -9,38 +9,31 @@ import SwiftUI
 import Lottie
 
 struct DocumentView: View {
-    @Binding var document: LottieFileDocument
+    @Binding var document: AnimationFileDocument
 
     @State private var selection: String?
 
     var body: some View {
-        if let firstAnimation = document.animations.first {
-            if document.animations.count > 1 {
-                NavigationSplitView {
-                    List(identifiers, id: \.self, selection: $selection) { identifier in
-                        Text(identifier)
-                    }
-                } detail: {
-                    AnimationView(animation: selectedAnimation ?? firstAnimation, id: selection)
-                        .environment(\.parseTime, document.parseTime)
+        switch identifiers.count {
+        case 2...:
+            NavigationSplitView {
+                List(identifiers, id: \.self, selection: $selection) { identifier in
+                    Text(identifier)
                 }
-            } else {
-                AnimationView(animation: firstAnimation, id: selection)
+            } detail: {
+                AnimationView(animationFile: document.animationFile, id: selection)
                     .environment(\.parseTime, document.parseTime)
             }
-        } else {
+        case 1:
+            AnimationView(animationFile: document.animationFile, id: selection)
+                .environment(\.parseTime, document.parseTime)
+        default:
             Text("No animations included in this file.")
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
 
     private var identifiers: [String] {
-        document.animations.compactMap(\.configuration).map(\.id)
-    }
-
-    private var selectedAnimation: LottieFileDocument.Animation? {
-        document.animations.first { animation in
-            animation.configuration?.id == selection
-        }
+        document.animationFile.identifiers
     }
 }

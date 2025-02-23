@@ -1,5 +1,5 @@
 //
-//  LottieFileDocument.swift
+//  AnimationFileDocument.swift
 //  LottieViewer
 //
 //  Created by Matěj Kašpar Jirásek on 03.01.2025.
@@ -9,14 +9,9 @@ import SwiftUI
 import UniformTypeIdentifiers
 @preconcurrency import Lottie
 import LottieViewerCore
+@preconcurrency import RiveRuntime
 
-struct LottieFileDocument: FileDocument {
-
-    struct Animation: Sendable {
-        let data: Data
-        let configuration: DotLottieConfiguration?
-        let animation: LottieAnimation
-    }
+struct AnimationFileDocument: FileDocument {
 
     enum FileWrapperError: Error {
         case writeNotSupported
@@ -24,11 +19,10 @@ struct LottieFileDocument: FileDocument {
         case unknownContentType
     }
 
-    let animations: [Animation]
+    let animationFile: AnimationFile
     let parseTime: TimeInterval
 
-    static let readableContentTypes: [UTType] = [.lottie, .dotLottie]
-    static let writableContentTypes: [UTType] = []
+    static let readableContentTypes: [UTType] = [.lottie, .dotLottie, .rive]
 
     init(configuration: ReadConfiguration) throws {
         guard let data = configuration.file.regularFileContents else {
@@ -39,12 +33,13 @@ struct LottieFileDocument: FileDocument {
 
         if configuration.contentType == .lottie {
             let animation = try LottieAnimation.from(data: data)
-            animations = [Animation(data: data, configuration: nil, animation: animation)]
+            animationFile = LottieAnimationFile(animation: animation)
         } else if configuration.contentType == .dotLottie {
-            let file = try LottieFileDocument.loadDotLottie(configuration: configuration, data: data)
-            animations = file.animations.map { animation in
-                Animation(data: data, configuration: animation.configuration, animation: animation.animation)
-            }
+            let file = try AnimationFileDocument.loadDotLottie(configuration: configuration, data: data)
+            animationFile = DotLottieAnimationFile(file: file)
+        } else if configuration.contentType == .rive {
+            let file = try RiveFile(data: data, loadCdn: false)
+            animationFile = RiveAnimationFile(file: file)
         } else {
             throw FileWrapperError.unknownContentType
         }

@@ -8,4 +8,5 @@
 public enum SupportedFileExtension: String {
     case lottie = "json"
     case dotLottie = "lottie"
+    case rive = "riv"
 }

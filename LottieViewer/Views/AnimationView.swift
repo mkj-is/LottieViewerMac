@@ -8,6 +8,7 @@
 import Lottie
 import DotLottie
 import SwiftUI
+import RiveRuntime
 
 private struct AnimationViewState {
     var showInfo: Bool?
@@ -19,7 +20,7 @@ private struct AnimationViewState {
 }
 
 struct AnimationView: View {
-    let animation: LottieFileDocument.Animation
+    let animationFile: AnimationFile
     let id: String?
 
     @State private var state = AnimationViewState()
@@ -30,22 +31,24 @@ struct AnimationView: View {
 
     var body: some View {
         HSplitView {
-            lottieLibraryView
+            animationRenderingView
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(state.configuration.backgroundColor)
 
             if showInfo {
                 VStack(alignment: .leading) {
-                    AnimationConfigurationView(state: $state.configuration)
+                    AnimationConfigurationView(isLottie: isLottie, state: $state.configuration)
                     Spacer()
-                    InfoView(info: LottieAnimationInfo(animation: animation.animation))
-                        .transformEnvironment(\.parseTime) { parseTime in
-                            if state.configuration.library == .dotLottie {
-                                parseTime = state.dotLottieParseTime
-                            } else {
-                                parseTime = parseTime
+                    if let lottieAnimation {
+                        InfoView(info: LottieAnimationInfo(animation: lottieAnimation))
+                            .transformEnvironment(\.parseTime) { parseTime in
+                                if state.configuration.library == .dotLottie {
+                                    parseTime = state.dotLottieParseTime
+                                } else {
+                                    parseTime = parseTime
+                                }
                             }
-                        }
+                    }
                 }
                 .padding()
                 .frame(minWidth: 150, maxWidth: 300, maxHeight: .infinity)
@@ -67,16 +70,47 @@ struct AnimationView: View {
         }
     }
 
-    private var showInfo: Bool {
-        state.showInfo ?? showInfoByDefault
+    @ViewBuilder
+    private var animationRenderingView: some View {
+        switch animationFile {
+        case let animationFile as RiveAnimationFile:
+            riveViewModel(model: RiveModel(riveFile: animationFile.file)).view()
+        case let animationFile as LottieAnimationFile:
+            lottieLibraryView(animation: animationFile.animation)
+        case let animationFile as DotLottieAnimationFile:
+            if let id, let animation = animationFile.file.animations.first(where: { $0.configuration.id == id }) {
+                lottieLibraryView(animation: animation.animation, configuration: animation.configuration)
+            } else if let animation = animationFile.file.animations.first {
+                lottieLibraryView(animation: animation.animation, configuration: animation.configuration)
+            } else {
+                Text("No animation found.")
+            }
+        default:
+            Text("Unknown animation file.")
+        }
+    }
+
+    private func riveViewModel(model: RiveModel) -> RiveViewModel {
+        let viewModel = RiveViewModel(model, fit: .contain, artboardName: id)
+        switch state.configuration.loopMode {
+        case .autoReverse:
+            viewModel.play(loop: .pingPong)
+        case .playOnce:
+            viewModel.play(loop: .oneShot)
+        case .loop:
+            viewModel.play(loop: .loop)
+        default:
+            break
+        }
+        return viewModel
     }
 
     @ViewBuilder
-    private var lottieLibraryView: some View {
+    private func lottieLibraryView(animation: LottieAnimation, configuration: DotLottieConfiguration? = nil) -> some View {
         switch state.configuration.library {
         case .lottie:
-            LottieView(animation: animation.animation)
-                .configure(configure)
+            LottieView(animation: animation)
+                .configure { configure(view: $0, configuration: configuration)}
                 .playbackMode(playbackMode)
                 .animationSpeed(state.configuration.speed)
         case .dotLottie:
@@ -95,7 +129,43 @@ struct AnimationView: View {
         }
     }
 
+    private var showInfo: Bool {
+        state.showInfo ?? showInfoByDefault
+    }
+
+    private var isLottie: Bool {
+        animationFile is LottieAnimationFile || animationFile is DotLottieAnimationFile
+    }
+
     // MARK: - Lottie configuration
+
+    private var lottieAnimation: LottieAnimation? {
+        switch animationFile {
+        case let animationFile as LottieAnimationFile:
+            return animationFile.animation
+        case let animationFile as DotLottieAnimationFile:
+            if let id, let animation = animationFile.file.animations.first(where: { $0.configuration.id == id }) {
+                return animation.animation
+            } else if let animation = animationFile.file.animations.first {
+                return animation.animation
+            }
+            return nil
+        default:
+            return nil
+        }
+    }
+
+    private var dotLottieConfiguration: DotLottieConfiguration? {
+        guard case let animationFile as DotLottieAnimationFile = animationFile else {
+            return nil
+        }
+        if let id, let animation = animationFile.file.animations.first(where: { $0.configuration.id == id }) {
+            return animation.configuration
+        } else if let animation = animationFile.file.animations.first {
+            return animation.configuration
+        }
+        return nil
+    }
 
     private var playbackMode: LottiePlaybackMode {
         if state.playing {
@@ -105,8 +175,8 @@ struct AnimationView: View {
         }
     }
 
-    private func configure(view: LottieAnimationView) {
-        if let imageProvider = animation.configuration?.imageProvider {
+    private func configure(view: LottieAnimationView, configuration: DotLottieConfiguration?) {
+        if let imageProvider = configuration?.imageProvider {
             view.imageProvider = imageProvider
         }
     }

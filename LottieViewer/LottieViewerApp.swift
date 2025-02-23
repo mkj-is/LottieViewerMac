@@ -22,7 +22,7 @@ struct LottieViewerApp: App {
     }
 
     var body: some Scene {
-        DocumentGroup(viewing: LottieFileDocument.self) { file in
+        DocumentGroup(viewing: AnimationFileDocument.self) { file in
             DocumentView(document: file.$document)
         }
         .commands {

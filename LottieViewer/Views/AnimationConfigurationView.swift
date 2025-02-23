@@ -21,6 +21,8 @@ struct AnimationConfigurationViewState {
 }
 
 struct AnimationConfigurationView: View {
+    let isLottie: Bool
+
     @Binding var state: AnimationConfigurationViewState
 
     @Environment(\.openURL) private var openURL
@@ -33,26 +35,30 @@ struct AnimationConfigurationView: View {
                 Text("Play once").tag(LottieLoopMode.playOnce)
             }
 
-            Slider(value: $state.speedExponent, in: -2.0...3.0, step: 1.0) {
-                Text("Playback speed")
+            if isLottie {
+                Slider(value: $state.speedExponent, in: -2.0...3.0, step: 1.0) {
+                    Text("Playback speed")
+                }
+                minimumValueLabel: { Text("¼×") }
+                maximumValueLabel: { Text("8×") }
             }
-            minimumValueLabel: { Text("¼×") }
-            maximumValueLabel: { Text("8×") }
 
             ColorPicker("Background color", selection: $state.backgroundColor)
 
-            HStack {
-                Picker("Library", selection: $state.library) {
-                    ForEach(LottieLibrary.allCases) { library in
-                        Text(library.description).tag(library)
+            if isLottie {
+                HStack {
+                    Picker("Library", selection: $state.library) {
+                        ForEach(LottieLibrary.allCases) { library in
+                            Text(library.description).tag(library)
+                        }
                     }
+                    Button(action: openLibraryURL) {
+                        Image(systemName: "arrowshape.forward.circle")
+                            .foregroundStyle(Color.accentColor)
+                    }
+                    .help("Open repository in browser")
+                    .buttonStyle(.plain)
                 }
-                Button(action: openLibraryURL) {
-                    Image(systemName: "arrowshape.forward.circle")
-                        .foregroundStyle(Color.accentColor)
-                }
-                .help("Open repository in browser")
-                .buttonStyle(.plain)
             }
         }
     }
@@ -66,7 +72,7 @@ struct AnimationConfigurationView: View {
 }
 
 #Preview {
-    AnimationConfigurationView(state: .constant(AnimationConfigurationViewState()))
+    AnimationConfigurationView(isLottie: true, state: .constant(AnimationConfigurationViewState()))
         .frame(maxWidth: 300)
         .padding()
 }
