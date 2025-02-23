@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Represents Swift package metadata.
 struct Package {
     let location: URL
     let version: String

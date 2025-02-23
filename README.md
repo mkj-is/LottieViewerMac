@@ -12,6 +12,7 @@ LottieViewer is a macOS application that allows you to view and play Lottie and 
   and alternative [DotLottie library from LottieFiles](https://github.com/LottieFiles/dotlottie-ios).
 - Display detailed information about the animation.
 - Document based native Swift app.
+- No login required, no tracking.
 
 ## Installation
 
