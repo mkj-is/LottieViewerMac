@@ -14,5 +14,7 @@ struct AboutScene: Scene {
         }
         .windowResizability(.contentSize)
         .defaultPosition(.center)
+        .windowStyle(.hiddenTitleBar)
+        .compatibleDisabledRestorationBehavior()
     }
 }

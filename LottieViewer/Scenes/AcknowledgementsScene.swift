@@ -7,5 +7,6 @@ struct AcknowledgementsScene: Scene {
         }
         .defaultSize(width: 600, height: 400)
         .defaultPosition(.center)
+        .compatibleDisabledRestorationBehavior()
     }
-} 
+}
