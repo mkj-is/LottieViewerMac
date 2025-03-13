@@ -11,15 +11,18 @@ import LottieViewerCore
 
 protocol AnimationFile: Sendable {
     var identifiers: [String] { get }
+    var data: Data { get }
 }
 
 struct LottieAnimationFile: AnimationFile {
     let animation: LottieAnimation
+    let data: Data
     let identifiers = [Constant.lottieBundleIdentifier]
 }
 
 struct DotLottieAnimationFile: AnimationFile {
     let file: DotLottieFile
+    let data: Data
 
     var identifiers: [String] {
         file.animations.map(\.configuration.id)
@@ -28,6 +31,7 @@ struct DotLottieAnimationFile: AnimationFile {
 
 struct RiveAnimationFile: AnimationFile {
     let file: RiveFile
+    let data: Data
 
     var identifiers: [String] {
         file.artboardNames()

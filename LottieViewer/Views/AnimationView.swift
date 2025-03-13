@@ -40,7 +40,7 @@ struct AnimationView: View {
                     AnimationConfigurationView(isLottie: isLottie, state: $state.configuration)
                     Spacer()
                     if let lottieAnimation {
-                        InfoView(info: LottieAnimationInfo(animation: lottieAnimation))
+                        InfoView(info: LottieAnimationInfo(animation: lottieAnimation, data: animationFile.data))
                             .transformEnvironment(\.parseTime) { parseTime in
                                 if state.configuration.library == .dotLottie {
                                     parseTime = state.dotLottieParseTime

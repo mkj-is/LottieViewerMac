@@ -33,13 +33,13 @@ struct AnimationFileDocument: FileDocument {
 
         if configuration.contentType == .lottie {
             let animation = try LottieAnimation.from(data: data)
-            animationFile = LottieAnimationFile(animation: animation)
+            animationFile = LottieAnimationFile(animation: animation, data: data)
         } else if configuration.contentType == .dotLottie {
             let file = try AnimationFileDocument.loadDotLottie(configuration: configuration, data: data)
-            animationFile = DotLottieAnimationFile(file: file)
+            animationFile = DotLottieAnimationFile(file: file, data: data)
         } else if configuration.contentType == .rive {
             let file = try RiveFile(data: data, loadCdn: false)
-            animationFile = RiveAnimationFile(file: file)
+            animationFile = RiveAnimationFile(file: file, data: data)
         } else {
             throw FileWrapperError.unknownContentType
         }

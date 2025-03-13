@@ -21,13 +21,13 @@ struct LottieAnimationInfo {
 
     var byteCount: Int?
 
-    init(animation: LottieAnimation) {
+    init(animation: LottieAnimation, data: Data) {
         self.startFrame = animation.startFrame
         self.endFrame = animation.endFrame
         self.frameRate = animation.framerate
         self.markerCount = animation.markerNames.count
 
-        self.byteCount = try? JSONEncoder().encode(animation).count
+        self.byteCount = data.count
 
         // Another possibility was to fork Lottie and make these properties public.
         let mirror = Mirror(reflecting: animation)
