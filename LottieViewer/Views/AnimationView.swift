@@ -91,7 +91,7 @@ struct AnimationView: View {
     }
 
     private func riveViewModel(model: RiveModel) -> RiveViewModel {
-        let viewModel = RiveViewModel(model, fit: .contain, artboardName: id)
+        let viewModel = RiveViewModel(model, artboardName: id)
         switch state.configuration.loopMode {
         case .autoReverse:
             viewModel.play(loop: .pingPong)
