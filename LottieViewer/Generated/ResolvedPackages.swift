@@ -38,7 +38,7 @@ SOFTWARE.
         ),
         "lottie-ios": Package(
             location: URL(string: "https://github.com/airbnb/lottie-ios.git")!,
-            version: "4.5.1",
+            version: "4.5.2",
             license: """
                                  Apache License
                            Version 2.0, January 2004
