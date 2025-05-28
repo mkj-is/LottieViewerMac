@@ -33,6 +33,10 @@ struct AboutView: View {
                 Text(library.description)
                     .font(.subheadline)
             }
+            if let rive = ResolvedPackages.dictionary["rive-ios"] {
+                Text("Rive \(rive.version)")
+                    .font(.subheadline)
+            }
 
             Button("Acknowledgements") {
                 openWindow(id: WindowID.acknowledgements.rawValue)
