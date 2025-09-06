@@ -450,6 +450,9 @@
         }
       }
     },
+    "Rive %@" : {
+      "shouldTranslate" : false
+    },
     "Root layer count:" : {
       "localizations" : {
         "cs" : {
