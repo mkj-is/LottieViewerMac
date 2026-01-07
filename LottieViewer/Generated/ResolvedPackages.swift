@@ -11,7 +11,7 @@ enum ResolvedPackages {
     static let dictionary: [String: Package] = [
         "dotlottie-ios": Package(
             location: URL(string: "https://github.com/LottieFiles/dotlottie-ios")!,
-            version: "0.11.1",
+            version: "0.12.0",
             license: """
 MIT License
 
@@ -38,7 +38,7 @@ SOFTWARE.
         ),
         "lottie-ios": Package(
             location: URL(string: "https://github.com/airbnb/lottie-ios.git")!,
-            version: "4.5.2",
+            version: "4.6.0",
             license: """
                                  Apache License
                            Version 2.0, January 2004
@@ -245,7 +245,7 @@ SOFTWARE.
         ),
         "rive-ios": Package(
             location: URL(string: "https://github.com/rive-app/rive-ios")!,
-            version: "6.12.1",
+            version: "6.12.3",
             license: """
 MIT License
 
