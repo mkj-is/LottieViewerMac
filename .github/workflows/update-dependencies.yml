@@ -1,0 +1,47 @@
+name: Update Dependencies
+
+on:
+  schedule:
+    - cron: '0 9 * * 1' # Every Monday at 9:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-dependencies:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Update dependencies
+        id: update
+        run: |
+          ./Scripts/update-dependencies.sh
+          if git diff --quiet; then
+            echo "has_updates=false" >> $GITHUB_OUTPUT
+          else
+            NEW_VERSION=$(grep -A1 'MARKETING_VERSION' LottieViewer.xcodeproj/project.pbxproj | grep -o '[0-9]*\.[0-9]*\.[0-9]*' | head -1)
+            echo "has_updates=true" >> $GITHUB_OUTPUT
+            echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Pull Request
+        if: steps.update.outputs.has_updates == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git checkout -B update-dependencies
+          git add -A
+          git commit -m "Update dependencies to latest versions"
+          git push -f origin update-dependencies
+          gh pr create \
+            --title "Update dependencies and bump version to ${{ steps.update.outputs.new_version }}" \
+            --body "This PR updates Swift Package dependencies to their latest versions.
+
+          **New version:** ${{ steps.update.outputs.new_version }}
+
+          Please review the dependency changes before merging." \
+            --base main || echo "PR already exists"
