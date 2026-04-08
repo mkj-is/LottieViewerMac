@@ -12,6 +12,8 @@ permissions:
 jobs:
   update-dependencies:
     runs-on: macos-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -30,8 +32,6 @@ jobs:
 
       - name: Create Pull Request
         if: steps.update.outputs.has_updates == 'true'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git checkout -B update-dependencies
           git add -A
