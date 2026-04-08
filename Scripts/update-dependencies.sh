@@ -27,8 +27,8 @@ grep -E "repositoryURL|minimumVersion" "$PROJECT_FILE" | paste - - | while read 
     latest_version=$(get_latest_release "$repo")
     
     if [ -z "$latest_version" ]; then
-        echo "  $name: $current_version (could not fetch latest)"
-        continue
+        echo "  ERROR: could not fetch latest release for $repo" >&2
+        exit 1
     fi
     
     if [ "$latest_version" != "$current_version" ]; then
