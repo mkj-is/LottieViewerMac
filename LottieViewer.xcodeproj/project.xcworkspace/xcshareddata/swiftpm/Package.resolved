@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/LottieFiles/dotlottie-ios",
       "state" : {
-        "revision" : "1f46c4786abe02a0a2f70c79d97e08105f363964",
-        "version" : "0.12.1"
+        "revision" : "0f014623ddd44f45b7620579f7a856f0492fb31c",
+        "version" : "0.14.1"
       }
     },
     {
@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/rive-app/rive-ios",
       "state" : {
-        "revision" : "106a3cd1693844f747dbbd05523b8e82561c3ed6",
-        "version" : "6.13.0"
+        "revision" : "2b009bfb2d73a11acfb37cd50a426f04aba17883",
+        "version" : "6.18.2"
       }
     }
   ],
