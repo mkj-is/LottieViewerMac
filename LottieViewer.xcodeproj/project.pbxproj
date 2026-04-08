@@ -674,7 +674,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.7.0;
+				MARKETING_VERSION = 1.7.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -739,7 +739,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.7.0;
+				MARKETING_VERSION = 1.7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -977,7 +977,7 @@
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 4.5.1;
+				minimumVersion = 4.6.0;
 			};
 		};
 		15577F0E2D6A28420041E76B /* XCRemoteSwiftPackageReference "rive-ios" */ = {
@@ -985,7 +985,7 @@
 			repositoryURL = "https://github.com/rive-app/rive-ios";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 6.7.0;
+				minimumVersion = 6.18.2;
 			};
 		};
 		1570A7F32D5BD1F1004F4B46 /* XCRemoteSwiftPackageReference "dotlottie-ios" */ = {
@@ -993,7 +993,7 @@
 			repositoryURL = "https://github.com/LottieFiles/dotlottie-ios";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.0;
+				minimumVersion = 0.14.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
