@@ -21,27 +21,38 @@ jobs:
       - name: Update dependencies
         id: update
         run: |
-          ./Scripts/update-dependencies.sh
-          if git diff --quiet; then
-            echo "has_updates=false" >> $GITHUB_OUTPUT
-          else
+          SCRIPT_OUTPUT=$(./Scripts/update-dependencies.sh)
+          echo "$SCRIPT_OUTPUT"
+          if ! git diff --quiet; then
             NEW_VERSION=$(grep -A1 'MARKETING_VERSION' LottieViewer.xcodeproj/project.pbxproj | grep -o '[0-9]*\.[0-9]*\.[0-9]*' | head -1)
+            UPDATES=$(echo "$SCRIPT_OUTPUT" | grep '→' | sed 's/^[[:space:]]*/- /')
             echo "has_updates=true" >> $GITHUB_OUTPUT
             echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
+            {
+              echo "updates<<EOF"
+              echo "$UPDATES"
+              echo "EOF"
+            } >> $GITHUB_OUTPUT
           fi
 
       - name: Create Pull Request
         if: steps.update.outputs.has_updates == 'true'
         run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git checkout -B update-dependencies
           git add -A
           git commit -m "Update dependencies to latest versions"
           git push -f origin update-dependencies
+          gh pr list --head update-dependencies --json number --jq '.[0].number' | grep -q . || \
           gh pr create \
             --title "Update dependencies and bump version to ${{ steps.update.outputs.new_version }}" \
             --body "This PR updates Swift Package dependencies to their latest versions.
 
           **New version:** ${{ steps.update.outputs.new_version }}
 
+          **Updated dependencies:**
+          ${{ steps.update.outputs.updates }}
+
           Please review the dependency changes before merging." \
-            --base main || echo "PR already exists"
+            --base main
