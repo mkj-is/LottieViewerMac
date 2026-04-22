@@ -1,0 +1,119 @@
+{
+  "fill" : {
+    "automatic-gradient" : "extended-srgb:0.00000,0.78431,0.70196,1.00000",
+    "orientation" : {
+      "start" : {
+        "x" : 0.5,
+        "y" : 0
+      },
+      "stop" : {
+        "x" : 0.5,
+        "y" : 0.7
+      }
+    }
+  },
+  "groups" : [
+    {
+      "blur-material" : 0.5,
+      "layers" : [
+        {
+          "fill" : "automatic",
+          "glass" : true,
+          "image-name" : "A 1 2.svg",
+          "name" : "A 1",
+          "opacity" : 1,
+          "position" : {
+            "scale" : 2,
+            "translation-in-points" : [
+              -94.212402,
+              21.961848250000003
+            ]
+          }
+        },
+        {
+          "image-name" : "A 1 2.svg",
+          "name" : "A 2",
+          "opacity" : 0.5,
+          "position" : {
+            "scale" : 2,
+            "translation-in-points" : [
+              -39.3920895,
+              -10.163151749999997
+            ]
+          }
+        },
+        {
+          "image-name" : "A 1 2.svg",
+          "name" : "A 3",
+          "opacity" : 0.25,
+          "position" : {
+            "scale" : 2,
+            "translation-in-points" : [
+              12.6953125,
+              -44.63971425
+            ]
+          }
+        }
+      ],
+      "lighting" : "combined",
+      "name" : "Group",
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "specular" : true,
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    },
+    {
+      "blur-material" : null,
+      "layers" : [
+        {
+          "fill-specializations" : [
+            {
+              "value" : {
+                "solid" : "extended-gray:1.00000,1.00000"
+              }
+            },
+            {
+              "appearance" : "dark",
+              "value" : {
+                "solid" : "extended-srgb:0.00000,0.78431,0.70196,1.00000"
+              }
+            }
+          ],
+          "glass" : true,
+          "hidden" : false,
+          "image-name" : "Grid.svg",
+          "name" : "Grid",
+          "opacity" : 0.4,
+          "position" : {
+            "scale" : 2,
+            "translation-in-points" : [
+              0,
+              -1
+            ]
+          }
+        }
+      ],
+      "lighting" : "combined",
+      "shadow" : {
+        "kind" : "none",
+        "opacity" : 0.5
+      },
+      "specular" : false,
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "circles" : [
+      "watchOS"
+    ],
+    "squares" : "shared"
+  }
+}

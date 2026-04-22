@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="514px" height="513px" viewBox="0 0 514 513" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Grid</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.4" stroke-linecap="square">
+        <g id="Grid" stroke="#FFFFFF" transform="translate(0.5, 1)">
+            <line x1="0.5" y1="384.0003" x2="512.5" y2="384.0003" id="Line-Copy-3" stroke-width="4"></line>
+            <line x1="0.5" y1="256.0002" x2="512.5" y2="256.0002" id="Line-Copy-2" stroke-width="4"></line>
+            <line x1="0.5" y1="128.0001" x2="512.5" y2="128.0001" id="Line-Copy" stroke-width="4"></line>
+            <line x1="391.5" y1="0.5" x2="391" y2="512" id="Line-Copy-6" stroke-width="4"></line>
+            <line x1="261.5" y1="0.5" x2="261" y2="512" id="Line-Copy-5" stroke-width="4"></line>
+            <line x1="131.5" y1="0.5" x2="131" y2="512" id="Line-Copy-4" stroke-width="4"></line>
+        </g>
+    </g>
+</svg>
