@@ -245,7 +245,7 @@ SOFTWARE.
         ),
         "rive-ios": Package(
             location: URL(string: "https://github.com/rive-app/rive-ios")!,
-            version: "6.20.3",
+            version: "6.20.4",
             license: """
 MIT License
 
