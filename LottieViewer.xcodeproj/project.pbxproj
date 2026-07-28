@@ -993,7 +993,7 @@
 			repositoryURL = "https://github.com/LottieFiles/dotlottie-ios";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.16.5;
+				minimumVersion = 0.16.7;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
