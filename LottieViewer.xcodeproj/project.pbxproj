@@ -985,7 +985,7 @@
 			repositoryURL = "https://github.com/rive-app/rive-ios";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 6.22.1;
+				minimumVersion = 6.23.1;
 			};
 		};
 		1570A7F32D5BD1F1004F4B46 /* XCRemoteSwiftPackageReference "dotlottie-ios" */ = {
@@ -993,7 +993,7 @@
 			repositoryURL = "https://github.com/LottieFiles/dotlottie-ios";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.16.7;
+				minimumVersion = 0.16.9;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
