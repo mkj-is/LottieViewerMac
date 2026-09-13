@@ -5,10 +5,11 @@
 //  Created by Matěj Kašpar Jirásek on 04.01.2025.
 //
 
-import Lottie
 import DotLottie
-import SwiftUI
+import Lottie
+import LottieViewerCore
 import RiveRuntime
+import SwiftUI
 
 private struct AnimationViewState {
     var showInfo: Bool?
@@ -28,6 +29,7 @@ struct AnimationView: View {
     @Environment(\.documentConfiguration) private var documentConfiguration
 
     @ShowInfoAppStorage private var showInfoByDefault
+    @RenderingEngineAppStorage private var renderingEngine
 
     var body: some View {
         HSplitView {
@@ -68,6 +70,7 @@ struct AnimationView: View {
                     .keyboardShortcut("I", modifiers: .command)
             }
         }
+        .task(setUpRenderingEngine)
     }
 
     @ViewBuilder
@@ -214,6 +217,15 @@ struct AnimationView: View {
     }
 
     // MARK: - Actions
+
+    /// Seeds this window only. The Library picker still overrides it,
+    /// and windows already open are left alone.
+    @Sendable
+    private nonisolated func setUpRenderingEngine() async {
+        await MainActor.run {
+            state.configuration.library = renderingEngine
+        }
+    }
 
     private func togglePlaying() {
         state.playing.toggle()

@@ -440,6 +440,16 @@
         }
       }
     },
+    "Rendering engine" : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vykreslovací knihovna"
+          }
+        }
+      }
+    },
     "Resolution:" : {
       "localizations" : {
         "cs" : {
@@ -519,6 +529,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Neznámý soubor animací."
+          }
+        }
+      }
+    },
+    "Used for QuickLook previews and thumbnails, and as the default for newly opened windows." : {
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Použije se pro náhledy a miniatury v QuickLooku a jako výchozí nastavení pro nově otevřená okna."
           }
         }
       }
