@@ -19,6 +19,7 @@
 		15447A842D2D815100DB7205 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 15447A832D2D815100DB7205 /* Lottie */; };
 		15577F102D6A28420041E76B /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 15577F0F2D6A28420041E76B /* RiveRuntime */; };
 		1570A7F52D5BD1F1004F4B46 /* DotLottie in Frameworks */ = {isa = PBXBuildFile; productRef = 1570A7F42D5BD1F1004F4B46 /* DotLottie */; };
+		15AA00022D5BD1F1004F4B46 /* DotLottie in Frameworks */ = {isa = PBXBuildFile; productRef = 15AA00012D5BD1F1004F4B46 /* DotLottie */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -194,6 +195,7 @@
 				15447A1A2D2C698700DB7205 /* Quartz.framework in Frameworks */,
 				15447A6E2D2D62C000DB7205 /* LottieViewerCore in Frameworks */,
 				15447A822D2D814A00DB7205 /* Lottie in Frameworks */,
+				15AA00022D5BD1F1004F4B46 /* DotLottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +347,7 @@
 			packageProductDependencies = (
 				15447A6D2D2D62C000DB7205 /* LottieViewerCore */,
 				15447A812D2D814A00DB7205 /* Lottie */,
+				15AA00012D5BD1F1004F4B46 /* DotLottie */,
 			);
 			productName = Preview;
 			productReference = 15447A172D2C698700DB7205 /* Preview.appex */;
@@ -1032,6 +1035,11 @@
 			productName = RiveRuntime;
 		};
 		1570A7F42D5BD1F1004F4B46 /* DotLottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1570A7F32D5BD1F1004F4B46 /* XCRemoteSwiftPackageReference "dotlottie-ios" */;
+			productName = DotLottie;
+		};
+		15AA00012D5BD1F1004F4B46 /* DotLottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1570A7F32D5BD1F1004F4B46 /* XCRemoteSwiftPackageReference "dotlottie-ios" */;
 			productName = DotLottie;

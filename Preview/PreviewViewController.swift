@@ -6,29 +6,38 @@
 //
 
 import Cocoa
-import Quartz
+import DotLottie
 import Lottie
 import LottieViewerCore
+import Quartz
+import SwiftUI
 
 final class PreviewViewController: NSViewController, QLPreviewingController {
 
-    private var animationView: LottieAnimationView!
+    /// Retained for the lifetime of the preview, the rendering is driven by the player inside.
+    private var dotLottieAnimation: DotLottieAnimation?
 
-    override init(nibName nibNameOrNil: NSNib.Name?, bundle nibBundleOrNil: Bundle?) {
-        let view = LottieAnimationView()
-        self.animationView = view
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        self.view = view
-    }
-    
-    required init?(coder: NSCoder) {
-        let lottieAnimationView = LottieAnimationView()
-        self.animationView = lottieAnimationView
-        super.init(coder: coder)
-        self.view = lottieAnimationView
+    override func loadView() {
+        view = NSView()
     }
 
     func preparePreviewOfFile(at url: URL) async throws {
+        let animationView: NSView
+
+        switch UserDefaults.shared.renderingEngine {
+        case .lottie:
+            animationView = try await makeLottieView(url: url)
+        case .dotLottie:
+            animationView = try makeDotLottieView(url: url)
+        }
+
+        animationView.frame = view.bounds
+        animationView.autoresizingMask = [.width, .height]
+        view.addSubview(animationView)
+    }
+
+    private func makeLottieView(url: URL) async throws -> NSView {
+        let animationView = LottieAnimationView()
         if url.pathExtension == SupportedFileExtension.dotLottie.rawValue {
             let file = try await DotLottieFile.loadedFrom(url: url)
             animationView.loadAnimation(from: file)
@@ -38,5 +47,16 @@ final class PreviewViewController: NSViewController, QLPreviewingController {
         animationView.contentMode = .scaleAspectFit
         animationView.loopMode = .loop
         animationView.play()
+        return animationView
+    }
+
+    private func makeDotLottieView(url: URL) throws -> NSView {
+        let data = try Data(contentsOf: url)
+        let animation = DotLottieAnimation(
+            lottieData: data,
+            config: AnimationConfig(autoplay: true, loop: true)
+        )
+        dotLottieAnimation = animation
+        return NSHostingView(rootView: animation.view())
     }
 }
