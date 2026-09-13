@@ -21,11 +21,13 @@ jobs:
       - name: Update dependencies
         id: update
         run: |
+          set -o pipefail
           ./Scripts/update-dependencies.sh | tee /tmp/script_output.txt
           SCRIPT_OUTPUT=$(cat /tmp/script_output.txt)
           if ! git diff --quiet; then
-            NEW_VERSION=$(grep -A1 'MARKETING_VERSION' LottieViewer.xcodeproj/project.pbxproj | grep -o '[0-9]*\.[0-9]*\.[0-9]*' | head -1)
-            UPDATES=$(echo "$SCRIPT_OUTPUT" | grep '→' | sed 's/^[[:space:]]*/- /')
+            NEW_VERSION=$(plutil -convert json -o - LottieViewer.xcodeproj/project.pbxproj \
+              | jq -r 'first(.objects[] | select(.isa == "XCBuildConfiguration") | .buildSettings.MARKETING_VERSION | select(. != null))')
+            UPDATES=$(echo "$SCRIPT_OUTPUT" | grep '→' | sed 's/^[[:space:]]*/- /' || true)
             echo "has_updates=true" >> $GITHUB_OUTPUT
             echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
             {
