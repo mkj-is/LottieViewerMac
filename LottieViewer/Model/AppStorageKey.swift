@@ -6,6 +6,7 @@
 //
 
 
+import LottieViewerCore
 import SwiftUI
 
 @propertyWrapper
@@ -19,5 +20,20 @@ struct ShowInfoAppStorage: DynamicProperty {
 
     var projectedValue: Binding<Bool> {
         $showInfoByDefault
+    }
+}
+
+@propertyWrapper
+struct RenderingEngineAppStorage: DynamicProperty {
+    @AppStorage(SharedDefaultsKey.renderingEngine, store: .shared)
+    private var renderingEngine = LottieLibrary.default
+
+    var wrappedValue: LottieLibrary {
+        get { renderingEngine }
+        nonmutating set { renderingEngine = newValue }
+    }
+
+    var projectedValue: Binding<LottieLibrary> {
+        $renderingEngine
     }
 }

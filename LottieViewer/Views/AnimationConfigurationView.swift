@@ -5,15 +5,16 @@
 //  Created by Matěj Kašpar Jirásek on 04.01.2025.
 //
 
-import SwiftUI
 import Lottie
+import LottieViewerCore
+import SwiftUI
 
 struct AnimationConfigurationViewState {
     var loopMode: LottieLoopMode = .loop
     /// Indicates step in slider, exponent of 2. Not actual speed.
     var speedExponent = 0.0
     var backgroundColor: Color = Color(nsColor: NSColor.windowBackgroundColor)
-    var library: LottieLibrary = .lottie
+    var library: LottieLibrary = .default
 
     var speed: Double {
         pow(2.0, speedExponent)
