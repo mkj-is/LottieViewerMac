@@ -985,7 +985,7 @@
 			repositoryURL = "https://github.com/rive-app/rive-ios";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 6.25.1;
+				minimumVersion = 6.26.0;
 			};
 		};
 		1570A7F32D5BD1F1004F4B46 /* XCRemoteSwiftPackageReference "dotlottie-ios" */ = {
