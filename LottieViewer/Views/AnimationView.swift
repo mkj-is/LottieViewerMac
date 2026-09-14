@@ -113,6 +113,7 @@ struct AnimationView: View {
         switch state.configuration.library {
         case .lottie:
             LottieView(animation: animation)
+                .resizable()
                 .configure { configure(view: $0, configuration: configuration)}
                 .playbackMode(playbackMode)
                 .animationSpeed(state.configuration.speed)
