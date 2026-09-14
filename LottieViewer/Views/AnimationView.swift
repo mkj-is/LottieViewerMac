@@ -11,6 +11,15 @@ import LottieViewerCore
 import RiveRuntime
 import SwiftUI
 
+/// Animation the DotLottie player should have loaded.
+///
+/// Carries the selected animation identifier so that picking another animation
+/// in the sidebar of a multi-animation `.lottie` file reloads the player.
+private struct DotLottieSelection: Equatable {
+    let library: LottieLibrary
+    let id: String?
+}
+
 private struct AnimationViewState {
     var showInfo: Bool?
     var playing: Bool = true
@@ -118,17 +127,16 @@ struct AnimationView: View {
                 .playbackMode(playbackMode)
                 .animationSpeed(state.configuration.speed)
         case .dotLottie:
-            if let animation = state.dotLottieAnimation {
-                animation.view()
-                    .task(id: state.configuration.library, priority: .userInitiated) {
-                        loadDotLottieAnimation()
-                    }
-            } else {
-                ProgressView()
-                    .progressViewStyle(.circular)
-                    .task(id: state.configuration.library, priority: .userInitiated) {
-                        loadDotLottieAnimation()
-                    }
+            Group {
+                if let animation = state.dotLottieAnimation {
+                    animation.view()
+                } else {
+                    ProgressView()
+                        .progressViewStyle(.circular)
+                }
+            }
+            .task(id: DotLottieSelection(library: state.configuration.library, id: id), priority: .userInitiated) {
+                loadDotLottieAnimation()
             }
         }
     }
@@ -191,8 +199,25 @@ struct AnimationView: View {
         guard state.configuration.library == .dotLottie else {
             return
         }
-        guard let fileURL = documentConfiguration?.fileURL, let data = try? Data(contentsOf: fileURL) else {
+
+        let parsingStartTime: Date = .now
+
+        if let animation = state.dotLottieAnimation, let id {
+            // The Metal coordinator holds on to the player it was created with,
+            // so another animation has to be loaded into the existing instance.
+            try? animation.loadAnimationById(id)
+        } else if let animation = makeDotLottieAnimation() {
+            state.dotLottieAnimation = animation
+        } else {
             return
+        }
+
+        state.dotLottieParseTime = Date.now.timeIntervalSince(parsingStartTime)
+    }
+
+    private func makeDotLottieAnimation() -> DotLottieAnimation? {
+        guard let fileURL = documentConfiguration?.fileURL, let data = try? Data(contentsOf: fileURL) else {
+            return nil
         }
         let configuration = AnimationConfig(
             autoplay: state.playing,
@@ -202,20 +227,16 @@ struct AnimationView: View {
             backgroundColor: CIColor(color: NSColor(state.configuration.backgroundColor)).flatMap { CIImage(color: $0) }
         )
 
-        let parsingStartTime: Date = .now
-
         if let format = SupportedFileExtension(pathExtension: fileURL.pathExtension), format.isLottieJSON,
            let data = String(data: data, encoding: .utf8) {
-            state.dotLottieAnimation = DotLottieAnimation(animationData: data, config: configuration)
-        } else {
-            let animation =  DotLottieAnimation(dotLottieData: data, config: configuration)
-            if let id {
-                try? animation.loadAnimationById(id)
-            }
-            state.dotLottieAnimation = animation
+            return DotLottieAnimation(animationData: data, config: configuration)
         }
 
-        state.dotLottieParseTime = Date.now.timeIntervalSince(parsingStartTime)
+        let animation = DotLottieAnimation(dotLottieData: data, config: configuration)
+        if let id {
+            try? animation.loadAnimationById(id)
+        }
+        return animation
     }
 
     // MARK: - Actions
