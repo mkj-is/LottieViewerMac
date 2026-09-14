@@ -203,7 +203,8 @@ struct AnimationView: View {
 
         let parsingStartTime: Date = .now
 
-        if fileURL.pathExtension == "json", let data = String(data: data, encoding: .utf8) {
+        if let format = SupportedFileExtension(pathExtension: fileURL.pathExtension), format.isLottieJSON,
+           let data = String(data: data, encoding: .utf8) {
             state.dotLottieAnimation = DotLottieAnimation(animationData: data, config: configuration)
         } else {
             let animation =  DotLottieAnimation(dotLottieData: data, config: configuration)

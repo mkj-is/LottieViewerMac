@@ -22,7 +22,7 @@ struct AnimationFileDocument: FileDocument {
     let animationFile: AnimationFile
     let parseTime: TimeInterval
 
-    static let readableContentTypes: [UTType] = [.lottie, .dotLottie, .rive]
+    static let readableContentTypes: [UTType] = [.lottie, .lot, .dotLottie, .rive]
 
     init(configuration: ReadConfiguration) throws {
         guard let data = configuration.file.regularFileContents else {
@@ -31,13 +31,15 @@ struct AnimationFileDocument: FileDocument {
 
         let parsingTimeStart: Date = .now
 
-        if configuration.contentType == .lottie {
+        // Compared by conformance rather than equality so that `lot` files,
+        // whose type conforms to `public.json`, take the Lottie JSON branch.
+        if configuration.contentType.conforms(to: .lottie) {
             let animation = try LottieAnimation.from(data: data)
             animationFile = LottieAnimationFile(animation: animation, data: data)
-        } else if configuration.contentType == .dotLottie {
+        } else if configuration.contentType.conforms(to: .dotLottie) {
             let file = try AnimationFileDocument.loadDotLottie(configuration: configuration, data: data)
             animationFile = DotLottieAnimationFile(file: file, data: data)
-        } else if configuration.contentType == .rive {
+        } else if configuration.contentType.conforms(to: .rive) {
             let file = try RiveFile(data: data, loadCdn: false)
             animationFile = RiveAnimationFile(file: file, data: data)
         } else {

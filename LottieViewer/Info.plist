@@ -16,6 +16,7 @@
 			<key>LSItemContentTypes</key>
 			<array>
 				<string>public.json</string>
+				<string>io.lottie.lot</string>
 			</array>
 			<key>NSUbiquitousDocumentUserActivityType</key>
 			<string>public.json</string>
@@ -140,6 +141,34 @@
 				<key>public.mime-type</key>
 				<array>
 					<string>application/vnd.rive.editor</string>
+				</array>
+			</dict>
+		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.json</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>Lottie</string>
+			<key>UTTypeIcons</key>
+			<dict>
+				<key>UTTypeIconBadgeName</key>
+				<string>DocumentIcon</string>
+				<key>UTTypeIconText</key>
+				<string>Lottie</string>
+			</dict>
+			<key>UTTypeIdentifier</key>
+			<string>io.lottie.lot</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>lot</string>
+				</array>
+				<key>public.mime-type</key>
+				<array>
+					<string>video/lottie+json</string>
 				</array>
 			</dict>
 		</dict>

@@ -38,11 +38,14 @@ final class PreviewViewController: NSViewController, QLPreviewingController {
 
     private func makeLottieView(url: URL) async throws -> NSView {
         let animationView = LottieAnimationView()
-        if url.pathExtension == SupportedFileExtension.dotLottie.rawValue {
+        switch SupportedFileExtension(pathExtension: url.pathExtension) {
+        case .dotLottie:
             let file = try await DotLottieFile.loadedFrom(url: url)
             animationView.loadAnimation(from: file)
-        } else if url.pathExtension == SupportedFileExtension.lottie.rawValue {
+        case .lottie, .lot:
             animationView.animation = await LottieAnimation.loadedFrom(url: url)
+        case .rive, nil:
+            break
         }
         animationView.contentMode = .scaleAspectFit
         animationView.loopMode = .loop

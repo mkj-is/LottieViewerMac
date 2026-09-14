@@ -11,7 +11,7 @@
 			<key>QLSupportedContentTypes</key>
 			<array>
 				<string>io.dotlottie.lottie</string>
-				<string>io.airbnb.lottie</string>
+				<string>io.lottie.lot</string>
 			</array>
 			<key>QLSupportsSearchableItems</key>
 			<false/>

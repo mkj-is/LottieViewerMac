@@ -149,19 +149,21 @@ final class ThumbnailProvider: QLThumbnailProvider {
 
     @MainActor
     private func loadAnimation(url: URL) async throws -> LottieAnimation {
-        if url.pathExtension == SupportedFileExtension.dotLottie.rawValue {
+        switch SupportedFileExtension(pathExtension: url.pathExtension) {
+        case .dotLottie:
             let animations = try await DotLottieFile.loadedFrom(url: url).animations
             guard let firstAnimation = animations.first else {
                 throw LottiePreviewError.noAnimations
             }
             return firstAnimation.animation
-        } else if url.pathExtension == SupportedFileExtension.lottie.rawValue {
+        case .lottie, .lot:
             guard let animation = await LottieAnimation.loadedFrom(url: url) else {
                 throw LottiePreviewError.notDecoded
             }
             return animation
+        case .rive, nil:
+            throw LottiePreviewError.unknownFileFormat
         }
-        throw LottiePreviewError.unknownFileFormat
     }
 
     // MARK: - DotLottie
@@ -200,14 +202,15 @@ final class ThumbnailProvider: QLThumbnailProvider {
         }
 
         let loaded: Bool
-        if url.pathExtension == SupportedFileExtension.dotLottie.rawValue {
+        switch SupportedFileExtension(pathExtension: url.pathExtension) {
+        case .dotLottie:
             loaded = player.loadDotlottieData(fileData: data)
-        } else if url.pathExtension == SupportedFileExtension.lottie.rawValue {
+        case .lottie, .lot:
             guard let json = String(data: data, encoding: .utf8) else {
                 throw LottiePreviewError.notDecoded
             }
             loaded = player.loadAnimationData(animationData: json)
-        } else {
+        case .rive, nil:
             throw LottiePreviewError.unknownFileFormat
         }
         guard loaded else {
